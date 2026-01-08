@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+# French translations for Admin components
+fr:
+  components:
+    admin:
+      impersonation_banner:
+        message: "Vous êtes connecté en tant que %{email}"
+        button: "Revenir à mon compte"

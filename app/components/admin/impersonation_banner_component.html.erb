@@ -1,0 +1,21 @@
+<div <%= tag.attributes(merged_html_attributes) %>>
+  <div class="<%= inner_container_classes %>">
+    <div class="<%= content_wrapper_classes %>">
+      <div class="<%= message_wrapper_classes %>">
+        <%= render Foundation::IconComponent.new(
+          name: "exclamation-triangle",
+          variant: :solid,
+          size: :medium,
+          color: :current
+        ) %>
+        <span class="text-sm font-medium">
+          <%= banner_message %>
+        </span>
+      </div>
+      <%= button_to button_text, stop_impersonating_path,
+        method: :post,
+        class: button_classes
+      %>
+    </div>
+  </div>
+</div>

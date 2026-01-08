@@ -1,0 +1,60 @@
+<div
+  class="<%= wrapper_classes %>"
+  data-controller="components--clipboard"
+  data-components--clipboard-success-text-value="<%= success_text %>"
+  data-components--clipboard-success-announcement-value="<%= success_announcement %>"
+  data-components--clipboard-error-announcement-value="<%= error_announcement %>"
+  data-components--clipboard-success-duration-value="<%= @success_duration %>"
+  <%= html_attributes_string %>
+>
+  <%# Hidden input to store the value to copy %>
+  <input type="hidden" data-components--clipboard-target="source" value="<%= @value %>">
+
+  <% if trigger? %>
+    <%# Custom trigger provided via slot %>
+    <div data-action="click->components--clipboard#copy"><%= trigger %></div>
+  <% elsif @variant == :icon %>
+    <%# Icon-only variant %>
+    <button
+      type="button"
+      class="<%= icon_only_classes %>"
+      data-action="click->components--clipboard#copy"
+      data-components--clipboard-target="button"
+      aria-label="<%= copy_text %>"
+    >
+      <span data-components--clipboard-target="icon"><%= copy_icon %></span>
+
+      <span data-components--clipboard-target="successIcon" class="hidden">
+        <%= success_icon %>
+      </span>
+    </button>
+  <% else %>
+    <%# Default button variant %>
+    <button
+      type="button"
+      class="<%= button_classes %>"
+      data-action="click->components--clipboard#copy"
+      data-components--clipboard-target="button"
+    >
+      <span data-components--clipboard-target="icon"><%= copy_icon %></span>
+
+      <span data-components--clipboard-target="successIcon" class="hidden">
+        <%= success_icon %>
+      </span>
+
+      <span data-components--clipboard-target="text"><%= copy_text %></span>
+
+      <span data-components--clipboard-target="successText" class="hidden">
+        <%= success_text %>
+      </span>
+    </button>
+  <% end %>
+
+  <%# Screen reader announcement %>
+  <span
+    class="sr-only"
+    role="status"
+    aria-live="polite"
+    data-components--clipboard-target="announcement"
+  ></span>
+</div>

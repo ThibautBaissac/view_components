@@ -1,0 +1,15 @@
+<div class="p-4 max-w-lg">
+  <div class="bg-gray-900 rounded-lg overflow-hidden">
+    <div class="flex items-center justify-between px-4 py-2 bg-gray-800">
+      <span class="text-sm text-gray-400">Ruby</span>
+
+      <%= render Behavior::ClipboardComponent.new(
+        value: code,
+        variant: :icon,
+        text: "Copy code"
+      ) %>
+    </div>
+
+    <pre class="p-4 text-sm text-gray-100 overflow-x-auto"><code><%= code %></code></pre>
+  </div>
+</div>

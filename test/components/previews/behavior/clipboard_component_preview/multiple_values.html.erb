@@ -1,0 +1,26 @@
+<div class="p-4 max-w-md">
+  <div
+    class="
+      bg-white border border-gray-200 rounded-lg shadow-sm divide-y
+      divide-gray-200
+    "
+  >
+    <% items.each do |item| %>
+      <div class="flex items-center justify-between px-4 py-3">
+        <div>
+          <span class="block text-sm font-medium text-gray-700">
+            <%= item[:label] %>
+          </span>
+
+          <span class="block text-sm text-gray-500"><%= item[:value] %></span>
+        </div>
+
+        <%= render Behavior::ClipboardComponent.new(
+          value: item[:value],
+          variant: :icon,
+          text: "Copy #{item[:label]}"
+        ) %>
+      </div>
+    <% end %>
+  </div>
+</div>

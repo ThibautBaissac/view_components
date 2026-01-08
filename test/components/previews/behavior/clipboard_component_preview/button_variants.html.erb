@@ -1,0 +1,13 @@
+<div class="flex flex-wrap gap-4 p-4">
+  <% variants.each do |variant| %>
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-sm text-gray-500"><%= variant.to_s.titleize %></span>
+
+      <%= render Behavior::ClipboardComponent.new(
+        value: "Copy me!",
+        text: "Copy",
+        button_variant: variant
+      ) %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+fr:
+  components:
+    behavior:
+      clipboard:
+        copy: "Copier"
+        copied: "Copié !"
+        copied_to_clipboard: "Copié dans le presse-papiers"
+        failed_to_copy: "Échec de la copie dans le presse-papiers"

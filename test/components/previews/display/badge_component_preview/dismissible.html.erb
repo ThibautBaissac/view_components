@@ -1,0 +1,9 @@
+<div class="flex flex-wrap items-center gap-2">
+  <% tags.each do |tag| %>
+    <%= render Display::BadgeComponent.new(
+      text: tag,
+      color: :primary,
+      dismissible: true
+    ) %>
+  <% end %>
+</div>

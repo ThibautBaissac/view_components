@@ -1,0 +1,15 @@
+<div class="space-y-3">
+  <% priorities.each do |priority| %>
+    <div class="flex items-center gap-3">
+      <%= render Display::BadgeComponent.new(
+        text: priority[:text],
+        variant: priority[:variant],
+        color: priority[:color],
+        size: :medium
+      ) %>
+      <span class="text-sm text-gray-600">
+        <%= "#{priority[:text]} priority issue requiring attention" %>
+      </span>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<div class="flex flex-wrap items-center gap-3">
+  <% examples.each do |example| %>
+    <%= render Display::BadgeComponent.new(
+      text: example[:text],
+      color: example[:color],
+      variant: :solid,
+      size: :medium
+    ) do |badge| %>
+      <% badge.with_icon(name: example[:icon], variant: :solid) %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,15 @@
+<div class="space-y-3">
+  <% statuses.each do |status| %>
+    <div class="flex items-center gap-2">
+      <%= render Display::BadgeComponent.new(
+        text: status[:text],
+        color: status[:color],
+        variant: :solid,
+        size: :small
+      ) %>
+      <span class="text-sm text-gray-600">
+        <%= "#{status[:text]} status for user accounts" %>
+      </span>
+    </div>
+  <% end %>
+</div>

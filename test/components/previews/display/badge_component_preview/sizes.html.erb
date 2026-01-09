@@ -1,0 +1,9 @@
+<div class="flex items-center gap-4">
+  <% sizes.each do |size| %>
+    <%= render Display::BadgeComponent.new(
+      text: size[:label],
+      size: size[:size],
+      color: :primary
+    ) %>
+  <% end %>
+</div>

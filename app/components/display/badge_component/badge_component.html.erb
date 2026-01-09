@@ -1,0 +1,21 @@
+<span
+  class="<%= computed_classes %>"
+  <%= tag.attributes(merged_html_attributes) %>
+>
+  <% if icon? %>
+    <%= icon %>
+  <% end %>
+
+  <%= badge_text %>
+
+  <% if @dismissible %>
+    <button
+      type="button"
+      class="<%= dismiss_button_classes %>"
+      aria-label="<%= dismiss_button_aria_label %>"
+      data-action="click->components--badge#dismiss"
+    >
+      <%= render Foundation::IconComponent.new(name: "x-mark", size: dismiss_icon_size, variant: :solid) %>
+    </button>
+  <% end %>
+</span>

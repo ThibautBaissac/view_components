@@ -1,0 +1,57 @@
+<div class="space-y-6">
+  <div class="prose max-w-none">
+    <h3 class="text-lg font-semibold text-gray-900">
+      Product Features
+      <%= render Display::BadgeComponent.new(text: "New", color: :primary, size: :small) %>
+    </h3>
+    <p class="text-gray-600">
+      This section highlights the latest features added to our product.
+    </p>
+  </div>
+
+  <div class="border rounded-lg p-4">
+    <div class="flex items-center justify-between mb-2">
+      <h4 class="font-medium text-gray-900">Premium Plan</h4>
+      <%= render Display::BadgeComponent.new(
+        text: "Popular",
+        color: :success,
+        variant: :solid,
+        size: :small,
+        pill: true
+      ) %>
+    </div>
+    <p class="text-sm text-gray-600">Get access to all premium features.</p>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <img src="https://ui-avatars.com/api/?name=John+Doe" alt="User" class="w-10 h-10 rounded-full">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="font-medium text-gray-900">John Doe</span>
+        <%= render Display::BadgeComponent.new(text: "Pro", color: :secondary, size: :small, pill: true) %>
+      </div>
+      <p class="text-sm text-gray-600">Product Designer</p>
+    </div>
+  </div>
+
+  <div class="space-y-2">
+    <div class="flex items-center gap-2">
+      <span class="text-sm text-gray-700">Status:</span>
+      <%= render Display::BadgeComponent.new(
+        text: "Active",
+        color: :success,
+        variant: :solid,
+        size: :small
+      ) %>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-sm text-gray-700">Environment:</span>
+      <%= render Display::BadgeComponent.new(
+        text: "Production",
+        color: :danger,
+        variant: :outline,
+        size: :small
+      ) %>
+    </div>
+  </div>
+</div>

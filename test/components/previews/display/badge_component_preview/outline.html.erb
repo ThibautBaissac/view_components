@@ -1,0 +1,9 @@
+<div class="flex flex-wrap items-center gap-2">
+  <% colors.each do |color| %>
+    <%= render Display::BadgeComponent.new(
+      text: color.to_s.capitalize,
+      variant: :outline,
+      color: color
+    ) %>
+  <% end %>
+</div>

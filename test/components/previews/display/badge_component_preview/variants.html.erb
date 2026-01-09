@@ -1,0 +1,9 @@
+<div class="flex items-center gap-3">
+  <% variants.each do |variant| %>
+    <%= render Display::BadgeComponent.new(
+      text: variant[:label],
+      variant: variant[:variant],
+      color: :primary
+    ) %>
+  <% end %>
+</div>

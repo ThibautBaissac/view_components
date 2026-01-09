@@ -1,0 +1,11 @@
+<div class="flex flex-wrap items-center gap-2">
+  <% tags.each do |tag| %>
+    <%= render Display::BadgeComponent.new(
+      text: tag[:text],
+      color: tag[:color],
+      variant: :subtle,
+      pill: true,
+      dismissible: true
+    ) %>
+  <% end %>
+</div>

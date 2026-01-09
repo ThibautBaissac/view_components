@@ -1,0 +1,18 @@
+<div class="space-y-3">
+  <% roles.each do |role| %>
+    <div class="flex items-center gap-3">
+      <%= render Display::BadgeComponent.new(
+        text: role[:text],
+        color: role[:color],
+        variant: :subtle,
+        size: :medium,
+        pill: true
+      ) do |badge| %>
+        <% badge.with_icon(name: role[:icon], variant: :outline) %>
+      <% end %>
+      <span class="text-sm text-gray-600">
+        <%= "Has #{role[:text].downcase} permissions" %>
+      </span>
+    </div>
+  <% end %>
+</div>

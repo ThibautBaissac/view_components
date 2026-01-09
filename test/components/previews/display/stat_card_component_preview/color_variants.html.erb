@@ -1,0 +1,55 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "currency-dollar",
+      value: "€1,234",
+      label: "Default Color",
+      value_color: :default
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "users",
+      value: "42",
+      label: "Primary Color",
+      value_color: :primary
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "check-circle",
+      value: "18",
+      label: "Success Color",
+      value_color: :success
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "exclamation-triangle",
+      value: "€2,450",
+      label: "Warning Color",
+      value_color: :warning
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "x-circle",
+      value: "3",
+      label: "Danger Color",
+      value_color: :danger
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "information-circle",
+      value: "24",
+      label: "Info Color",
+      value_color: :info
+    )) %>
+  </div>
+</div>

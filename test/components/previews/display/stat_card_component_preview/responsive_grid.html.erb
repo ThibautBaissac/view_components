@@ -1,0 +1,44 @@
+<div class="bg-slate-50 p-6">
+  <h2 class="text-lg font-semibold text-slate-900 mb-4">Event Dashboard</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="bg-white rounded-lg border border-slate-200 p-4">
+      <%= render(Display::StatCardComponent.new(
+        icon_name: "calendar-days",
+        value: "156",
+        label: "Total Events",
+        size: :medium,
+        value_color: :primary
+      )) %>
+    </div>
+
+    <div class="bg-white rounded-lg border border-slate-200 p-4">
+      <%= render(Display::StatCardComponent.new(
+        icon_name: "check-circle",
+        value: "124",
+        label: "Confirmed",
+        size: :medium,
+        value_color: :success
+      )) %>
+    </div>
+
+    <div class="bg-white rounded-lg border border-slate-200 p-4">
+      <%= render(Display::StatCardComponent.new(
+        icon_name: "clock",
+        value: "28",
+        label: "Pending",
+        size: :medium,
+        value_color: :warning
+      )) %>
+    </div>
+
+    <div class="bg-white rounded-lg border border-slate-200 p-4">
+      <%= render(Display::StatCardComponent.new(
+        icon_name: "x-circle",
+        value: "4",
+        label: "Cancelled",
+        size: :medium,
+        value_color: :danger
+      )) %>
+    </div>
+  </div>
+</div>

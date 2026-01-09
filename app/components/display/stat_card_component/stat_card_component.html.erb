@@ -1,0 +1,25 @@
+<div
+  class="<%= container_classes %>"
+  <%= tag.attributes(merged_html_attributes) %>
+  role="region"
+  aria-labelledby="<%= label_id %>">
+  <% if show_icon? %>
+    <div class="<%= icon_container_classes %>">
+      <%= render Foundation::IconComponent.new(
+        name: @icon_name,
+        color: @icon_color,
+        size: :large,
+        label: label_text
+      ) %>
+    </div>
+  <% end %>
+
+  <data
+    class="<%= value_classes %>"
+    <% if numeric_value.present? %>value="<%= numeric_value %>"<% end %>
+    aria-describedby="<%= label_id %>">
+    <%= @value %>
+  </data>
+
+  <p id="<%= label_id %>" class="<%= label_classes %>"><%= label_text %></p>
+</div>

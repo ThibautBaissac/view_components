@@ -1,0 +1,37 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 bg-slate-50">
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "currency-euro",
+      value: "€12,450",
+      label: "Total Revenue",
+      value_color: :success
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "calendar",
+      value: "24",
+      label: "Active Events",
+      value_color: :primary
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "users",
+      value: "89",
+      label: "Total Vendors",
+      value_color: :info
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "exclamation-triangle",
+      value: "€2,300",
+      label: "Pending Payments",
+      value_color: :warning
+    )) %>
+  </div>
+</div>

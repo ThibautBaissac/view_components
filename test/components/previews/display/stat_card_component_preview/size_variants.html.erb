@@ -1,0 +1,34 @@
+<div class="space-y-8 p-6">
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <h3 class="text-sm font-medium text-slate-700 mb-4">Medium Size (Default)</h3>
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "currency-dollar",
+      value: "€1,234",
+      label: "Revenue",
+      size: :medium,
+      value_color: :primary
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <h3 class="text-sm font-medium text-slate-700 mb-4">Large Size</h3>
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "users",
+      value: "89",
+      label: "Total Vendors",
+      size: :large,
+      value_color: :success
+    )) %>
+  </div>
+
+  <div class="bg-white rounded-lg border border-slate-200 p-6">
+    <h3 class="text-sm font-medium text-slate-700 mb-4">XLarge Size</h3>
+    <%= render(Display::StatCardComponent.new(
+      icon_name: "chart-bar",
+      value: "156",
+      label: "All Events",
+      size: :xlarge,
+      value_color: :info
+    )) %>
+  </div>
+</div>

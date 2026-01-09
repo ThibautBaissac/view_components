@@ -1,0 +1,23 @@
+en:
+  components:
+    display:
+      badge:
+        dismiss: "Remove badge"
+      timeago:
+        ago: "ago"
+        ago_prefix: ""
+        in_prefix: "in"
+        less_than_a_minute: "less than a minute"
+        one_minute: "1 minute"
+        x_minutes: "%{count} minutes"
+        about_one_hour: "about 1 hour"
+        about_x_hours: "about %{count} hours"
+        one_day: "1 day"
+        x_days: "%{count} days"
+        about_one_week: "about 1 week"
+        about_x_weeks: "about %{count} weeks"
+        about_one_month: "about 1 month"
+        about_x_months: "about %{count} months"
+        about_one_year: "about 1 year"
+        about_x_years: "about %{count} years"
+        live_indicator_label: "Live updating"

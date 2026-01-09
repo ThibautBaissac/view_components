@@ -1,0 +1,8 @@
+<div class="space-y-4">
+  <% times.each do |item| %>
+    <div class="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+      <span class="text-sm text-gray-500"><%= item[:label] %></span>
+      <%= render Display::TimeagoComponent.new(datetime: item[:datetime]) %>
+    </div>
+  <% end %>
+</div>

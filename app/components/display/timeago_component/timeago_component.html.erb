@@ -1,0 +1,14 @@
+<time
+  class="<%= computed_classes %>"
+  datetime="<%= datetime_attribute %>"
+  <%= tag.attributes(merged_html_attributes) %>
+>
+  <% if @live_indicator %>
+    <span class="relative flex h-2 w-2" <%= tag.attributes(live_indicator_attributes) %>>
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+    </span>
+  <% end %>
+
+  <span <%= tag.attributes(text_target) %>><%= relative_time_text %></span>
+</time>

@@ -1,0 +1,15 @@
+<div class="space-y-3">
+  <% events.each do |event| %>
+    <div class="flex items-center justify-between p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-300 transition-colors">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+        <span class="font-medium text-gray-900"><%= event[:name] %></span>
+      </div>
+      <%= render Display::TimeagoComponent.new(
+        datetime: event[:datetime],
+        prefix: event[:prefix],
+        class: "text-sm text-blue-600 font-medium"
+      ) %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<div class="space-y-4">
+  <% activities.each do |activity| %>
+    <div class="flex items-start gap-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+      <div class="flex-shrink-0 w-8 h-8 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center">
+        <%= render Foundation::IconComponent.new(name: activity[:icon], size: :small) %>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-gray-900"><%= activity[:action] %></p>
+        <%= render Display::TimeagoComponent.new(
+          datetime: activity[:datetime],
+          class: "text-sm text-gray-500"
+        ) %>
+      </div>
+    </div>
+  <% end %>
+</div>

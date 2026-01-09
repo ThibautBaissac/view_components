@@ -1,0 +1,12 @@
+<div class="space-y-4">
+  <% examples.each do |item| %>
+    <div class="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+      <span class="text-sm text-gray-500"><%= item[:label] %></span>
+      <%= render Display::TimeagoComponent.new(
+        datetime: item[:datetime],
+        title_format: item[:title_format]
+      ) %>
+    </div>
+  <% end %>
+</div>
+<p class="mt-4 text-sm text-gray-500 italic">Hover over each timestamp to see the custom title format.</p>

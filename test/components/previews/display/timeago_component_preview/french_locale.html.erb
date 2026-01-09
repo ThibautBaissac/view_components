@@ -1,0 +1,14 @@
+<div class="space-y-4">
+  <p class="text-sm text-gray-500 mb-4">
+    These examples use the French locale (fr). Notice how past times use "il y a" prefix
+    and future times use "dans" prefix.
+  </p>
+  <% times.each do |item| %>
+    <div class="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+      <span class="text-sm text-gray-500"><%= item[:label] %></span>
+      <% I18n.with_locale(:fr) do %>
+        <%= render Display::TimeagoComponent.new(datetime: item[:datetime]) %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

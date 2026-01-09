@@ -1,0 +1,23 @@
+fr:
+  components:
+    display:
+      badge:
+        dismiss: "Retirer le badge"
+      timeago:
+        ago: "il y a"
+        ago_prefix: "il y a"
+        in_prefix: "dans"
+        less_than_a_minute: "moins d'une minute"
+        one_minute: "1 minute"
+        x_minutes: "%{count} minutes"
+        about_one_hour: "environ 1 heure"
+        about_x_hours: "environ %{count} heures"
+        one_day: "1 jour"
+        x_days: "%{count} jours"
+        about_one_week: "environ 1 semaine"
+        about_x_weeks: "environ %{count} semaines"
+        about_one_month: "environ 1 mois"
+        about_x_months: "environ %{count} mois"
+        about_one_year: "environ 1 an"
+        about_x_years: "environ %{count} ans"
+        live_indicator_label: "Mise à jour en direct"

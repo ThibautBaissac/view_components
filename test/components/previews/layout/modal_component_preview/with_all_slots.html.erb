@@ -1,0 +1,43 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Modal with custom header, body, and footer slots:</p>
+
+  <%= render Foundation::ButtonComponent.new(
+    text: "Open Modal with Slots",
+    variant: :primary,
+    data: Layout::ModalComponent.trigger_attributes(modal_id: modal_id)
+  ) %>
+
+  <%= render Layout::ModalComponent.new(id: modal_id) do |modal| %>
+    <% modal.with_header do %>
+      <div class="flex items-center gap-3">
+        <%= render Foundation::IconComponent.new(name: "star", variant: :solid, color: :warning, size: :medium) %>
+        <h2 class="text-lg font-semibold text-gray-900">Custom Header with Icon</h2>
+      </div>
+    <% end %>
+
+    <% modal.with_body do %>
+      <div class="space-y-4">
+        <p class="text-gray-600">
+          This modal uses slots for complete customization of the header, body, and footer sections.
+        </p>
+        <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <p class="text-blue-800 text-sm">
+            <strong>Tip:</strong> Use slots when you need more control over the modal's structure.
+          </p>
+        </div>
+      </div>
+    <% end %>
+
+    <% modal.with_footer do %>
+      <%= render Foundation::ButtonComponent.new(
+        text: "Cancel",
+        variant: :secondary,
+        data: { action: "click->components--modal#close" }
+      ) %>
+      <%= render Foundation::ButtonComponent.new(
+        text: "Save Changes",
+        variant: :primary
+      ) %>
+    <% end %>
+  <% end %>
+</div>

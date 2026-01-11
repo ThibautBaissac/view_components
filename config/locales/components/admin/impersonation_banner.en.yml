@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+# English translations for Admin components
+en:
+  components:
+    admin:
+      impersonation_banner:
+        message: "You are signed in as %{email}"
+        button: "Back to my account"

@@ -1,0 +1,6 @@
+en:
+  components:
+    form:
+      field:
+        date_picker:
+          clear_button_label: "Clear date"

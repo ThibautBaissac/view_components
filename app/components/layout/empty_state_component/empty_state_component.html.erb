@@ -1,0 +1,27 @@
+<div class="<%= container_classes %>"
+     role="status"
+     aria-live="polite"
+     <%= tag.attributes(merged_html_attributes) %>>
+  <% if show_icon? %>
+    <%= render Foundation::IconComponent.new(
+      name: @icon_name,
+      variant: @icon_variant,
+      size: @icon_size,
+      color: :muted,
+      class: "mx-auto",
+      aria_hidden: true
+    ) %>
+  <% end %>
+
+  <h3 class="<%= title_classes %>"><%= title_text %></h3>
+
+  <% if show_description? %>
+    <p class="<%= description_classes %>"><%= description_text %></p>
+  <% end %>
+
+  <% if action? %>
+    <div class="<%= action_container_classes %>">
+      <%= action %>
+    </div>
+  <% end %>
+</div>

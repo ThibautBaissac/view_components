@@ -1,0 +1,153 @@
+<%# Navigation::PaginationComponent template %>
+<%# Renders pagination navigation based on variant %>
+
+<% if @show_info %>
+  <div class="<%= container_classes %>">
+<% end %>
+
+<nav class="<%= nav_classes %>" <%= html_attributes_string(nav_attributes) %>>
+  <% case @variant
+     when :default %>
+    <%# Default variant: Full pagination with page numbers %>
+    <%# Previous button %>
+    <% if previous? %>
+      <a <%= link_attributes_string(@pagy.previous, rel: "prev") %>
+         class="<%= link_button_classes %>"
+         aria-label="<%= prev_button_aria_label %>">
+        <%= render Foundation::IconComponent.new(name: "chevron-left", size: icon_size) %>
+      </a>
+    <% else %>
+      <span class="<%= disabled_button_classes %>"
+            aria-disabled="true"
+            aria-label="<%= prev_button_aria_label %>">
+        <%= render Foundation::IconComponent.new(name: "chevron-left", size: icon_size, color: :muted) %>
+      </span>
+    <% end %>
+
+    <%# Page numbers %>
+    <% series.each do |item| %>
+      <% if item.is_a?(Integer) %>
+        <%# Clickable page number %>
+        <a <%= link_attributes_string(item) %>
+           class="<%= link_button_classes %>"
+           aria-label="<%= page_aria_label(item) %>">
+          <%= item %>
+        </a>
+      <% elsif item.is_a?(String) %>
+        <%# Current page (string representation) %>
+        <span class="<%= active_button_classes %>"
+              aria-current="page"
+              aria-label="<%= current_page_aria_label(item) %>">
+          <%= item %>
+        </span>
+      <% elsif item == :gap %>
+        <%# Gap/ellipsis %>
+        <span class="<%= gap_classes %>" role="separator" aria-hidden="true">
+          &hellip;
+        </span>
+      <% end %>
+    <% end %>
+
+    <%# Next button %>
+    <% if next? %>
+      <a <%= link_attributes_string(@pagy.next, rel: "next") %>
+         class="<%= link_button_classes %>"
+         aria-label="<%= next_button_aria_label %>">
+        <%= render Foundation::IconComponent.new(name: "chevron-right", size: icon_size) %>
+      </a>
+    <% else %>
+      <span class="<%= disabled_button_classes %>"
+            aria-disabled="true"
+            aria-label="<%= next_button_aria_label %>">
+        <%= render Foundation::IconComponent.new(name: "chevron-right", size: icon_size, color: :muted) %>
+      </span>
+    <% end %>
+
+  <% when :compact
+     # Compact variant: Prev/Next with page indicator %>
+    <%# Previous button %>
+    <% if previous? %>
+      <a <%= link_attributes_string(@pagy.previous, rel: "prev") %>
+         class="<%= link_button_classes %>"
+         aria-label="<%= prev_button_aria_label %>">
+        <%= render Foundation::IconComponent.new(name: "chevron-left", size: icon_size) %>
+        <span class="sr-only sm:not-sr-only sm:ml-1"><%= prev_button_text %></span>
+      </a>
+    <% else %>
+      <span class="<%= disabled_button_classes %>"
+            aria-disabled="true"
+            aria-label="<%= prev_button_aria_label %>">
+        <%= render Foundation::IconComponent.new(name: "chevron-left", size: icon_size, color: :muted) %>
+        <span class="sr-only sm:not-sr-only sm:ml-1"><%= prev_button_text %></span>
+      </span>
+    <% end %>
+
+    <%# Page indicator %>
+    <span class="px-3 py-2 text-sm font-medium text-slate-700">
+      <%= page_indicator_text %>
+    </span>
+
+    <%# Next button %>
+    <% if next? %>
+      <a <%= link_attributes_string(@pagy.next, rel: "next") %>
+         class="<%= link_button_classes %>"
+         aria-label="<%= next_button_aria_label %>">
+        <span class="sr-only sm:not-sr-only sm:mr-1"><%= next_button_text %></span>
+        <%= render Foundation::IconComponent.new(name: "chevron-right", size: icon_size) %>
+      </a>
+    <% else %>
+      <span class="<%= disabled_button_classes %>"
+            aria-disabled="true"
+            aria-label="<%= next_button_aria_label %>">
+        <span class="sr-only sm:not-sr-only sm:mr-1"><%= next_button_text %></span>
+        <%= render Foundation::IconComponent.new(name: "chevron-right", size: icon_size, color: :muted) %>
+      </span>
+    <% end %>
+
+  <% when :minimal
+     # Minimal variant: Only Prev/Next buttons %>
+    <%# Previous button %>
+    <% if previous? %>
+      <a <%= link_attributes_string(@pagy.previous, rel: "prev") %>
+         class="<%= link_button_classes %>"
+         aria-label="<%= prev_button_aria_label %>">
+        <%= render Foundation::IconComponent.new(name: "chevron-left", size: icon_size) %>
+        <span class="ml-1"><%= prev_button_text %></span>
+      </a>
+    <% else %>
+      <span class="<%= disabled_button_classes %>"
+            aria-disabled="true"
+            aria-label="<%= prev_button_aria_label %>">
+        <%= render Foundation::IconComponent.new(name: "chevron-left", size: icon_size, color: :muted) %>
+        <span class="ml-1"><%= prev_button_text %></span>
+      </span>
+    <% end %>
+
+    <%# Spacer %>
+    <span class="flex-1"></span>
+
+    <%# Next button %>
+    <% if next? %>
+      <a <%= link_attributes_string(@pagy.next, rel: "next") %>
+         class="<%= link_button_classes %>"
+         aria-label="<%= next_button_aria_label %>">
+        <span class="mr-1"><%= next_button_text %></span>
+        <%= render Foundation::IconComponent.new(name: "chevron-right", size: icon_size) %>
+      </a>
+    <% else %>
+      <span class="<%= disabled_button_classes %>"
+            aria-disabled="true"
+            aria-label="<%= next_button_aria_label %>">
+        <span class="mr-1"><%= next_button_text %></span>
+        <%= render Foundation::IconComponent.new(name: "chevron-right", size: icon_size, color: :muted) %>
+      </span>
+    <% end %>
+  <% end %>
+</nav>
+
+<% if @show_info %>
+    <p class="text-sm text-slate-500">
+      <%= page_info %>
+    </p>
+  </div>
+<% end %>

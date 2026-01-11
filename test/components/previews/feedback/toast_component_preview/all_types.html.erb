@@ -1,0 +1,8 @@
+<div class="space-y-3">
+  <% toasts.each do |toast_data| %>
+    <%= render(Feedback::ToastComponent.new(
+      message: toast_data[:message],
+      type: toast_data[:type]
+    )) %>
+  <% end %>
+</div>

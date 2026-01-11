@@ -1,0 +1,26 @@
+en:
+  components:
+    form:
+      field:
+        checkbox:
+          # Common checkbox labels
+          labels:
+            terms: "I agree to the terms and conditions"
+            privacy: "I accept the privacy policy"
+            newsletter: "Subscribe to our newsletter"
+            marketing: "Receive marketing emails"
+            notifications: "Enable notifications"
+            remember_me: "Remember me"
+            agree: "I agree"
+            accept: "I accept"
+            confirm: "I confirm"
+
+          # Common hints for checkboxes
+          hints:
+            terms: "You must accept to continue"
+            privacy: "Required to use this service"
+            newsletter: "You can unsubscribe at any time"
+            marketing: "We'll send you occasional updates about new features"
+            notifications: "Get real-time updates"
+            remember_me: "Stay signed in on this device"
+            optional: "This is optional"

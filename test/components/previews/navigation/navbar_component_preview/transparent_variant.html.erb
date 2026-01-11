@@ -1,0 +1,20 @@
+<div class="relative bg-gradient-to-r from-indigo-500 to-purple-600 min-h-[300px]">
+  <%= render(Navigation::NavbarComponent.new(variant: :transparent)) do |navbar| %>
+    <% navbar.with_logo do %>
+      <a href="#" class="font-bold text-xl text-white">EventEssentials</a>
+    <% end %>
+
+    <% navbar.with_nav_item(text: "Home", url: "#", active: true) %>
+    <% navbar.with_nav_item(text: "Features", url: "#") %>
+    <% navbar.with_nav_item(text: "Pricing", url: "#") %>
+
+    <% navbar.with_action do %>
+      <button class="px-4 py-2 bg-white text-indigo-600 rounded-lg text-sm font-medium hover:bg-gray-100">Sign Up</button>
+    <% end %>
+  <% end %>
+
+  <div class="text-center text-white py-20">
+    <h1 class="text-4xl font-bold mb-4">Transparent Navbar</h1>
+    <p class="text-lg">Perfect for hero sections and landing pages</p>
+  </div>
+</div>

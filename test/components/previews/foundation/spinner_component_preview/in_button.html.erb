@@ -1,0 +1,21 @@
+<div class="flex flex-wrap gap-4 p-6">
+  <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg flex items-center hover:bg-indigo-700" disabled>
+    <%= render(Foundation::SpinnerComponent.new(size: :small, color: :white, inline: true)) %>
+    <span class="ml-2">Saving...</span>
+  </button>
+
+  <button class="px-5 py-2.5 bg-green-600 text-white rounded-lg flex items-center hover:bg-green-700" disabled>
+    <%= render(Foundation::SpinnerComponent.new(size: :small, color: :white, inline: true)) %>
+    <span class="ml-2">Processing...</span>
+  </button>
+
+  <button class="px-4 py-2 bg-red-600 text-white rounded-lg flex items-center hover:bg-red-700" disabled>
+    <%= render(Foundation::SpinnerComponent.new(size: :small, color: :white, inline: true)) %>
+    <span class="ml-2">Deleting...</span>
+  </button>
+
+  <button class="px-6 py-3 bg-slate-900 text-white rounded-lg flex items-center hover:bg-slate-800 text-lg" disabled>
+    <%= render(Foundation::SpinnerComponent.new(size: :medium, color: :white, inline: true)) %>
+    <span class="ml-2">Uploading...</span>
+  </button>
+</div>

@@ -1,0 +1,39 @@
+fr:
+  components:
+    form:
+      field:
+        base:
+          # Libellés communs (peuvent être surchargés par des composants de champs spécifiques)
+          labels:
+            email: "Adresse email"
+            password: "Mot de passe"
+            password_confirmation: "Confirmer le mot de passe"
+            name: "Nom"
+            first_name: "Prénom"
+            last_name: "Nom de famille"
+            phone: "Numéro de téléphone"
+            address: "Adresse"
+            city: "Ville"
+            postal_code: "Code postal"
+            country: "Pays"
+            message: "Message"
+            description: "Description"
+            notes: "Notes"
+
+          # Indices communs
+          hints:
+            email: "Nous ne partagerons jamais votre email"
+            password: "Au moins 8 caractères"
+            password_confirmation: "Doit correspondre au mot de passe ci-dessus"
+            phone: "Inclure l'indicatif du pays si international"
+            optional: "Facultatif"
+
+          # Erreurs de validation communes
+          errors:
+            required: "Ce champ est requis"
+            invalid_format: "Le format n'est pas valide"
+            too_short: "Est trop court"
+            too_long: "Est trop long"
+            invalid_email: "N'est pas une adresse email valide"
+            invalid_phone: "N'est pas un numéro de téléphone valide"
+            invalid_url: "N'est pas une URL valide"

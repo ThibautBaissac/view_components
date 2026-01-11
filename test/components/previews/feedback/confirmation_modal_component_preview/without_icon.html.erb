@@ -1,0 +1,19 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Minimal confirmation without icon:</p>
+
+  <%= render Foundation::ButtonComponent.new(
+    text: "Clear All",
+    variant: :secondary,
+    data: Feedback::ConfirmationModalComponent.trigger_attributes(modal_id: modal_id)
+  ) %>
+
+  <%= render Feedback::ConfirmationModalComponent.new(
+    id: modal_id,
+    title: "Clear All Notifications",
+    message: "All notifications will be marked as read and removed from your inbox.",
+    confirm_text: "Clear All",
+    cancel_text: "Keep",
+    type: :info,
+    show_icon: false
+  ) %>
+</div>

@@ -1,0 +1,5 @@
+en:
+  components:
+    navigation:
+      navbar:
+        mobile_menu_label: "Open main menu"

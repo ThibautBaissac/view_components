@@ -1,0 +1,32 @@
+<div class="<%= wrapper_classes %>">
+  <% if include_hidden? %>
+    <input type="hidden" name="<%= @name %>" value="0">
+  <% end %>
+
+  <div class="<%= checkbox_container_classes %>">
+    <div class="<%= checkbox_input_wrapper_classes %>">
+      <%= tag.input(**merged_checkbox_attributes) %>
+    </div>
+
+    <% if has_label? %>
+      <label for="<%= @id %>" class="<%= label_classes %>">
+        <% if label_content? %>
+          <%= label_content %>
+        <% else %>
+          <%= @label %>
+        <% end %>
+        <%= required_indicator_html %>
+      </label>
+    <% end %>
+  </div>
+
+  <% if has_hint? && !has_error? %>
+    <p id="<%= hint_id %>" class="<%= hint_classes %> <%= hint_error_margin_classes %>"><%= @hint %></p>
+  <% end %>
+
+  <% if has_error? %>
+    <p id="<%= error_id %>" class="<%= error_classes %> <%= hint_error_margin_classes %>" role="alert">
+      <%= @error %>
+    </p>
+  <% end %>
+</div>

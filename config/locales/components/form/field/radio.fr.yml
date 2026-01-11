@@ -1,0 +1,6 @@
+fr:
+  components:
+    form:
+      field:
+        radio:
+          select: "Sélectionner l'option"

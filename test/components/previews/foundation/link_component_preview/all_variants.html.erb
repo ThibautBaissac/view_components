@@ -1,0 +1,9 @@
+<div class="flex flex-wrap gap-4 p-4">
+  <% variants.each do |variant| %>
+    <%= render Foundation::LinkComponent.new(
+      href: "#",
+      text: variant.to_s.titleize,
+      variant: variant
+    ) %>
+  <% end %>
+</div>

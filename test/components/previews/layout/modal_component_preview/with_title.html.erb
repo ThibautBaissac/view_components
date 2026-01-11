@@ -1,0 +1,17 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Modal with a title in the header:</p>
+
+  <%= render Foundation::ButtonComponent.new(
+    text: "Open Modal",
+    variant: :primary,
+    data: Layout::ModalComponent.trigger_attributes(modal_id: modal_id)
+  ) %>
+
+  <%= render Layout::ModalComponent.new(
+    id: modal_id,
+    title: title
+  ) do %>
+    <p class="text-gray-600">This modal has a title displayed in the header section.</p>
+    <p class="text-gray-600 mt-2">The title is also linked via aria-labelledby for accessibility.</p>
+  <% end %>
+</div>

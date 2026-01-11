@@ -1,0 +1,53 @@
+<div
+  class="<%= container_classes %> <%= icon_border_color_class %> border-l-4 relative overflow-hidden"
+  <%= tag.attributes(merged_html_attributes) %>
+  role="status"
+  aria-live="<%= aria_live_value %>"
+  aria-atomic="true"
+  data-components--toast-target="toast"
+  data-action="mouseenter->components--toast#pause mouseleave->components--toast#resume"
+>
+  <% if icon? %>
+    <div class="<%= icon_classes %>"><%= icon %></div>
+  <% elsif show_icon? %>
+    <div class="<%= icon_classes %>"><%= render default_icon %></div>
+  <% end %>
+
+  <div class="<%= content_classes %>">
+    <% if title? %>
+      <div class="<%= title_classes %>"><%= title %></div>
+    <% end %>
+
+    <%# Message is auto-escaped by Rails - do not use .html_safe %>
+    <div class="<%= message_classes %>"><%= @message %></div>
+
+    <% if action? %>
+      <div class="mt-2">
+        <%= action %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if show_dismiss_button? %>
+    <%= render Foundation::ButtonComponent.new(
+      variant: :ghost,
+      size: :small,
+      type: :button,
+      class: "flex-shrink-0 -mr-1 -mt-1 text-slate-400 hover:text-slate-600",
+      aria: { label: "Dismiss toast" },
+      "data-action": "click->components--toast#dismiss"
+    ) do |button| %>
+      <% button.with_icon_leading do %>
+        <%= render Foundation::IconComponent.new(name: "x-mark", size: :small, variant: :solid) %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if show_progress_bar? %>
+    <div
+      class="<%= progress_bar_classes %>"
+      data-components--toast-target="progressBar"
+      style="width: 100%"
+    ></div>
+  <% end %>
+</div>

@@ -1,0 +1,53 @@
+<div <%= tag.attributes(merged_html_attributes) %>>
+  <div class="<%= content_wrapper_classes %>">
+    <%# Tab list with proper ARIA role %>
+    <div
+      role="tablist"
+      aria-label="<%= aria_label %>"
+      class="<%= tablist_classes %>"
+      <% if @vertical %>aria-orientation="vertical"<% end %>
+    >
+      <% tabs.each_with_index do |tab, index| %>
+        <% is_selected = tab_selected?(tab, index) %>
+        <button
+          type="button"
+          role="tab"
+          id="<%= @tabs_id %>-tab-<%= tab.id %>"
+          aria-controls="<%= @tabs_id %>-panel-<%= tab.id %>"
+          aria-selected="<%= is_selected %>"
+          tabindex="<%= is_selected ? '0' : '-1' %>"
+          class="<%= tab_button_classes(selected: is_selected) %>"
+          data-components--tabs-target="tab"
+          data-action="click->components--tabs#select keydown->components--tabs#handleKeydown"
+          data-index="<%= index %>"
+          <% if tab.disabled? %>
+            disabled
+            aria-disabled="true"
+          <% end %>
+        >
+          <% if tab.icon.present? %>
+            <%= render Foundation::IconComponent.new(name: tab.icon, size: :small) %>
+          <% end %>
+          <span><%= tab.label %></span>
+        </button>
+      <% end %>
+    </div>
+
+    <%# Tab panels %>
+    <div class="<%= panels_wrapper_classes %>">
+      <% tabs.each_with_index do |tab, index| %>
+        <% is_selected = tab_selected?(tab, index) %>
+        <div
+          role="tabpanel"
+          id="<%= @tabs_id %>-panel-<%= tab.id %>"
+          aria-labelledby="<%= @tabs_id %>-tab-<%= tab.id %>"
+          class="<%= panel_classes(selected: is_selected) %>"
+          data-components--tabs-target="panel"
+          data-index="<%= index %>"
+        >
+          <%= tab %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

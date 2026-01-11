@@ -1,0 +1,49 @@
+<%= tag.div(class: wrapper_classes, **wrapper_data_attributes) do %>
+  <% if has_label? %>
+    <label for="<%= @id %>" class="<%= label_classes %>">
+      <%= @label %>
+
+      <% if @required %>
+        <span class="text-red-500 ml-0.5" aria-hidden="true">
+          <%= required_indicator %>
+        </span>
+      <% end %>
+    </label>
+  <% end %>
+
+  <div class="<%= input_wrapper_classes %>">
+    <% if icon_leading? %>
+      <div class="<%= icon_wrapper_classes(:leading) %> <%= icon_color_classes %>">
+        <%= icon_leading %>
+      </div>
+    <% end %>
+
+    <%= tag.input(**merged_input_attributes) %>
+
+    <% if clearable? %>
+      <div class="<%= icon_wrapper_classes(:trailing) %>">
+        <%= tag.button(
+          type: "button",
+          class: "p-1 rounded-full hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-500 #{icon_color_classes} #{@value.blank? ? 'hidden' : ''}",
+          data: {
+            "components--date-picker-target": "clearButton",
+            action: "components--date-picker#clear"
+          },
+          aria: { label: clear_button_label }
+        ) do %>
+          <%= render Foundation::IconComponent.new(name: "x-mark", size: :small) %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if has_hint? && !has_error? %>
+    <p id="<%= hint_id %>" class="<%= hint_classes %>"><%= @hint %></p>
+  <% end %>
+
+  <% if has_error? %>
+    <p id="<%= error_id %>" class="<%= error_classes %>" role="alert">
+      <%= @error %>
+    </p>
+  <% end %>
+<% end %>

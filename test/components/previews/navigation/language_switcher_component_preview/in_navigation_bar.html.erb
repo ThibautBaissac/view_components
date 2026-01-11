@@ -1,0 +1,19 @@
+<div class="bg-white border-b shadow-sm p-4">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between">
+    <div class="flex items-center gap-8">
+      <div class="text-xl font-bold text-gray-900">CraftOS</div>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#" class="text-gray-600 hover:text-gray-900">Dashboard</a>
+        <a href="#" class="text-gray-600 hover:text-gray-900">Products</a>
+        <a href="#" class="text-gray-600 hover:text-gray-900">Orders</a>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <%= render(Navigation::LanguageSwitcherComponent.new) %>
+      <button class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700">
+        Sign In
+      </button>
+    </div>
+  </nav>
+</div>

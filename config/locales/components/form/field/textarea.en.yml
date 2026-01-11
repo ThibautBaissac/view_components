@@ -1,0 +1,8 @@
+en:
+  components:
+    form:
+      field:
+        textarea:
+          placeholder: "Enter text..."
+          hint:
+            max_characters: "Maximum %{count} characters."

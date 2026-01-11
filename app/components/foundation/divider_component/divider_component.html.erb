@@ -1,0 +1,13 @@
+<% if has_label? %>
+  <div <%= tag.attributes(merged_html_attributes_with_container) %>>
+    <div class="<%= line_classes %>"></div>
+    <span class="<%= label_classes %>"><%= content %></span>
+    <div class="<%= line_classes %>"></div>
+  </div>
+<% else %>
+  <% if horizontal? %>
+    <hr <%= tag.attributes(merged_html_attributes_with_divider) %> />
+  <% else %>
+    <div <%= tag.attributes(merged_html_attributes_with_divider) %>></div>
+  <% end %>
+<% end %>

@@ -1,0 +1,20 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Confirmation with URL action (uses link instead of button):</p>
+
+  <%= render Foundation::ButtonComponent.new(
+    text: "Archive Project",
+    variant: :secondary,
+    data: Feedback::ConfirmationModalComponent.trigger_attributes(modal_id: modal_id)
+  ) %>
+
+  <%= render Feedback::ConfirmationModalComponent.new(
+    id: modal_id,
+    title: "Archive Project",
+    message: "This project will be moved to the archive. You can restore it anytime from the archived projects section.",
+    confirm_text: "Archive",
+    cancel_text: "Cancel",
+    confirm_url: "#archive-action",
+    confirm_method: :patch,
+    type: :warning
+  ) %>
+</div>

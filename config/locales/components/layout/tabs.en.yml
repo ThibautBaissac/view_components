@@ -1,0 +1,6 @@
+en:
+  components:
+    layout:
+      tabs:
+        # ARIA labels for accessibility
+        aria_label: "Tabs"

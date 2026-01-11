@@ -1,0 +1,6 @@
+en:
+  components:
+    foundation:
+      tooltip:
+        aria_label: "Tooltip"
+        close_hint: "Press Escape to close"

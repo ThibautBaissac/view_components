@@ -1,0 +1,5 @@
+<div class="flex flex-wrap gap-4 p-6">
+  <% variants.each do |variant| %>
+    <%= render(Foundation::BaseButtonComponent.new(text: variant.to_s.titleize, variant: variant)) %>
+  <% end %>
+</div>

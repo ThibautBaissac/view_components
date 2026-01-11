@@ -1,0 +1,17 @@
+en:
+  components:
+    layout:
+      empty_state:
+        titles:
+          no_events: "No events yet"
+          no_vendors: "No vendors yet"
+          no_search_results: "No results found"
+          no_items: "No items"
+          no_data: "No data available"
+          empty: "Nothing here"
+        descriptions:
+          create_first_event: "Get started by creating your first event"
+          add_first_vendor: "Add your first vendor to get started"
+          adjust_filters: "Try adjusting your search or filter criteria"
+          start_adding: "Start adding items to see them here"
+          check_back: "Check back later for updates"

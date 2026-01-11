@@ -1,0 +1,20 @@
+<div class="p-6 bg-white">
+  <div class="flex items-stretch h-64 space-x-8">
+    <div class="flex-1 flex items-center justify-center bg-gray-50 rounded-lg">
+      <p class="text-gray-600">Left Content</p>
+    </div>
+
+    <%= render Foundation::DividerComponent.new(
+      orientation: :vertical,
+      thickness: :thin,
+      color: :primary,
+      spacing: :medium
+    ) do %>
+      VS
+    <% end %>
+
+    <div class="flex-1 flex items-center justify-center bg-gray-50 rounded-lg">
+      <p class="text-gray-600">Right Content</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<%= tag.div(class: wrapper_classes, data: wrapper_data_attributes) do %>
+  <% if has_label? %>
+    <label for="<%= @id %>" class="<%= label_classes %>">
+      <%= @label %>
+      <% if @required %>
+        <span class="text-red-500 ml-0.5" aria-hidden="true"><%= required_indicator %></span>
+      <% end %>
+    </label>
+  <% end %>
+
+  <%= tag.div(class: drop_zone_classes, data: drop_zone_data_attributes, **drop_zone_html_attributes) do %>
+    <%= tag.input(**input_attributes) %>
+
+    <div class="<%= icon_classes %> mb-2 pointer-events-none" data-components--file-upload-target="iconContainer">
+      <% if icon? %>
+        <%= icon %>
+      <% else %>
+        <%= render Foundation::IconComponent.new(name: "arrow-up-tray", size: :large) %>
+      <% end %>
+    </div>
+
+    <div class="<%= text_classes %>" data-components--file-upload-target="textContainer">
+      <span class="pointer-events-none" data-components--file-upload-target="dropText"><%= drop_zone_text %></span>
+      <%= tag.button(
+        browse_button_text,
+        type: "button",
+        class: "#{browse_link_classes}",
+        disabled: @disabled || nil,
+        data: {
+          "components--file-upload-target": "browseButton",
+          action: "click->components--file-upload#triggerFileInput"
+        }
+      ) %>
+    </div>
+
+    <div class="<%= secondary_text_classes %> pointer-events-none" data-components--file-upload-target="restrictions">
+      <% restrictions = [] %>
+      <% restrictions << accepted_types_description if accepted_types_description.present? %>
+      <% restrictions << t_component("restrictions.max_size", size: human_max_size, default: "Max %{size}") if @max_size.present? %>
+      <% restrictions << t_component("restrictions.max_files", count: @max_files, default: "Up to %{count} files") if multiple? %>
+      <%= restrictions.join(t_component("restrictions.separator", default: " • ")) %>
+    </div>
+
+    <div
+      class="absolute inset-0 rounded-lg bg-blue-100 bg-opacity-50 border-2 border-blue-500 border-dashed hidden items-center justify-center pointer-events-none"
+      data-components--file-upload-target="dragOverlay">
+      <span class="text-blue-600 font-medium"><%= t_component("drag_overlay_text", default: "Drop files here") %></span>
+    </div>
+  <% end %>
+
+  <div class="<%= file_list_classes %> hidden" data-components--file-upload-target="fileList">
+  </div>
+
+  <template data-components--file-upload-target="fileItemTemplate">
+    <div class="<%= file_item_classes %>" data-file-item>
+      <div class="flex items-center gap-2 min-w-0">
+        <div class="flex-shrink-0" data-preview-container></div>
+        <div class="min-w-0">
+          <p class="font-medium text-gray-700 truncate" data-file-name></p>
+          <p class="text-xs text-gray-500" data-file-size></p>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="<%= remove_button_classes %>"
+        data-action="click->components--file-upload#removeFile"
+        data-file-name="">
+        <%= render Foundation::IconComponent.new(name: "x-mark", size: :small) %>
+      </button>
+    </div>
+  </template>
+
+  <template data-components--file-upload-target="imagePreviewTemplate">
+    <img class="w-10 h-10 rounded object-cover" data-preview-image alt="">
+  </template>
+
+  <template data-components--file-upload-target="fileIconTemplate">
+    <div class="w-10 h-10 rounded bg-gray-100 flex items-center justify-center text-gray-400">
+      <%= render Foundation::IconComponent.new(name: "document", size: :small) %>
+    </div>
+  </template>
+
+  <% if has_hint? && !has_error? %>
+    <p id="<%= hint_id %>" class="<%= hint_classes %>"><%= @hint %></p>
+  <% end %>
+
+  <% if has_error? %>
+    <p id="<%= error_id %>" class="<%= error_classes %>" role="alert"><%= @error %></p>
+  <% end %>
+
+  <p class="<%= error_classes %> hidden" role="alert" data-components--file-upload-target="validationError"></p>
+<% end %>

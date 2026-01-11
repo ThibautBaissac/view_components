@@ -1,0 +1,6 @@
+fr:
+  components:
+    layout:
+      tabs:
+        # ARIA labels pour l'accessibilité
+        aria_label: "Onglets"

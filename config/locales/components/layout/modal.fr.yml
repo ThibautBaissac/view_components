@@ -1,0 +1,6 @@
+fr:
+  components:
+    layout:
+      modal:
+        # ARIA labels pour l'accessibilité
+        close_button_aria_label: "Fermer la fenêtre"

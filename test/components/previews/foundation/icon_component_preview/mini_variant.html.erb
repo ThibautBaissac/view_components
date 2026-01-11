@@ -1,0 +1,52 @@
+<div class="p-6 space-y-6">
+  <div class="flex items-center gap-4">
+    <h3 class="text-sm font-semibold text-gray-900">Mini Icons (20x20)</h3>
+    <span class="text-xs text-gray-500">Optimized for compact UI elements</span>
+  </div>
+
+  <div class="grid grid-cols-12 gap-4">
+    <% %w[
+      check x-mark plus minus
+      chevron-up chevron-down chevron-left chevron-right
+      arrow-up arrow-down arrow-left arrow-right
+      pencil trash eye eye-slash
+      heart star bell user
+      cog-6-tooth magnifying-glass envelope home
+    ].each do |icon_name| %>
+      <div class="flex flex-col items-center gap-2 p-2 rounded hover:bg-gray-50">
+        <%= render(Foundation::IconComponent.new(name: icon_name, variant: :mini, size: :medium)) %>
+        <span class="text-[10px] text-gray-400 text-center leading-tight"><%= icon_name %></span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+    <h4 class="text-sm font-medium text-blue-900 mb-3">Usage Examples</h4>
+
+    <div class="space-y-4">
+      <div class="flex items-center gap-3">
+        <button class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
+          <%= render(Foundation::IconComponent.new(name: "plus", variant: :mini, size: :small)) %>
+          Add Item
+        </button>
+        <span class="text-xs text-gray-600">Compact button with mini icon</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-green-700 bg-green-100 rounded">
+          <%= render(Foundation::IconComponent.new(name: "check-circle", variant: :mini, size: :xs)) %>
+          Active
+        </span>
+        <span class="text-xs text-gray-600">Badge with mini icon</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <%= render(Foundation::IconComponent.new(name: "clock", variant: :mini, size: :small, color: :muted)) %>
+          <span>2 hours ago</span>
+        </div>
+        <span class="text-xs text-gray-600">Inline text with mini icon</span>
+      </div>
+    </div>
+  </div>
+</div>

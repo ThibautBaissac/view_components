@@ -1,0 +1,9 @@
+fr:
+  components:
+    form:
+      field:
+        file_upload:
+          choose_file: "Choisir un fichier"
+          no_file_chosen: "Aucun fichier sélectionné"
+          drag_drop: "Glissez-déposez un fichier ici ou cliquez pour parcourir"
+          remove_file: "Supprimer le fichier"

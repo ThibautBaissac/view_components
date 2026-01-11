@@ -1,0 +1,18 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Info confirmation for neutral or positive actions:</p>
+
+  <%= render Foundation::ButtonComponent.new(
+    text: "Submit Application",
+    variant: :primary,
+    data: Feedback::ConfirmationModalComponent.trigger_attributes(modal_id: modal_id)
+  ) %>
+
+  <%= render Feedback::ConfirmationModalComponent.new(
+    id: modal_id,
+    title: "Submit Application",
+    message: "Your application will be sent for review. You'll receive a confirmation email shortly.",
+    confirm_text: "Submit",
+    cancel_text: "Review First",
+    type: :info
+  ) %>
+</div>

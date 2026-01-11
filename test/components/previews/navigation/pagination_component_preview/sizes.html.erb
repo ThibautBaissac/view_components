@@ -1,0 +1,16 @@
+<div class="space-y-8">
+  <div>
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Small</h3>
+    <%= render Navigation::PaginationComponent.new(pagy: pagy, size: :small) %>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Medium (default)</h3>
+    <%= render Navigation::PaginationComponent.new(pagy: pagy, size: :medium) %>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Large</h3>
+    <%= render Navigation::PaginationComponent.new(pagy: pagy, size: :large) %>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Confirmation with additional description for extra context:</p>
+
+  <%= render Foundation::ButtonComponent.new(
+    text: "Transfer Ownership",
+    variant: :danger,
+    data: Feedback::ConfirmationModalComponent.trigger_attributes(modal_id: modal_id)
+  ) %>
+
+  <%= render Feedback::ConfirmationModalComponent.new(
+    id: modal_id,
+    title: "Transfer Ownership",
+    message: "You are about to transfer ownership of this organization to another user.",
+    confirm_text: "Transfer",
+    cancel_text: "Cancel",
+    type: :danger
+  ) do |modal| %>
+    <% modal.with_description do %>
+      <ul class="text-left list-disc list-inside mt-2 space-y-1">
+        <li>You will lose admin access immediately</li>
+        <li>All your permissions will be revoked</li>
+        <li>This action cannot be undone</li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

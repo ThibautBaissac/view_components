@@ -1,0 +1,5 @@
+<div class="flex flex-col gap-4 p-6 items-start">
+  <% sizes.each do |size| %>
+    <%= render(Foundation::ButtonComponent.new(text: "#{size.to_s.titleize} Button", size: size)) %>
+  <% end %>
+</div>

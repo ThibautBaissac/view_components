@@ -1,0 +1,6 @@
+en:
+  components:
+    form:
+      field:
+        text_input:
+          placeholder: "Enter text..."

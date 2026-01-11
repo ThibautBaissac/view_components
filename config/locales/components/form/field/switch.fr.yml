@@ -1,0 +1,8 @@
+fr:
+  components:
+    form:
+      field:
+        switch:
+          on: "Activé"
+          off: "Désactivé"
+          toggle: "Basculer l'interrupteur"

@@ -1,0 +1,28 @@
+<div class="space-y-6">
+  <div>
+    <h3 class="text-sm font-medium text-slate-500 mb-2">Small</h3>
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "small_switch",
+      label: "Small toggle switch",
+      size: :small
+    )) %>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-slate-500 mb-2">Medium (Default)</h3>
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "medium_switch",
+      label: "Medium toggle switch",
+      size: :medium
+    )) %>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-slate-500 mb-2">Large</h3>
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "large_switch",
+      label: "Large toggle switch",
+      size: :large
+    )) %>
+  </div>
+</div>

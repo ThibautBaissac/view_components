@@ -1,0 +1,39 @@
+en:
+  components:
+    form:
+      field:
+        base:
+          # Common labels (can be overridden by specific field components)
+          labels:
+            email: "Email Address"
+            password: "Password"
+            password_confirmation: "Confirm Password"
+            name: "Name"
+            first_name: "First Name"
+            last_name: "Last Name"
+            phone: "Phone Number"
+            address: "Address"
+            city: "City"
+            postal_code: "Postal Code"
+            country: "Country"
+            message: "Message"
+            description: "Description"
+            notes: "Notes"
+
+          # Common hints
+          hints:
+            email: "We'll never share your email"
+            password: "At least 8 characters"
+            password_confirmation: "Must match the password above"
+            phone: "Include country code if international"
+            optional: "Optional"
+
+          # Common validation errors
+          errors:
+            required: "This field is required"
+            invalid_format: "The format is not valid"
+            too_short: "Is too short"
+            too_long: "Is too long"
+            invalid_email: "Is not a valid email address"
+            invalid_phone: "Is not a valid phone number"
+            invalid_url: "Is not a valid URL"

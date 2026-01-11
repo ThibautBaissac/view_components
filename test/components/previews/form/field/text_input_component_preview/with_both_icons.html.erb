@@ -1,0 +1,16 @@
+<%= render(Form::Field::TextInputComponent.new(
+  name: "amount",
+  label: "Amount",
+  type: :number,
+  placeholder: "0.00",
+  min: 0,
+  step: 0.01
+)) do |input| %>
+  <% input.with_icon_leading do %>
+    <span class="text-gray-500 text-sm font-medium">$</span>
+  <% end %>
+
+  <% input.with_icon_trailing do %>
+    <span class="text-gray-400 text-xs font-medium">USD</span>
+  <% end %>
+<% end %>

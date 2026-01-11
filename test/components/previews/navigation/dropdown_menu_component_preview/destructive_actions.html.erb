@@ -1,0 +1,17 @@
+<div class="p-8">
+  <%= render Navigation::DropdownMenuComponent.new do |menu|
+    menu.with_trigger do
+      tag.button(class: "inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+        tag.svg(class: "w-5 h-5", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+          tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z")
+        }
+      end
+    end
+
+    menu.with_item_link(text: "Edit", href: "#edit")
+    menu.with_item_link(text: "Duplicate", href: "#duplicate")
+    menu.with_item_divider
+    menu.with_item_link(text: "Archive", href: "#archive", destructive: true)
+    menu.with_item_link(text: "Delete permanently", href: "#delete", destructive: true)
+  end %>
+</div>

@@ -1,0 +1,31 @@
+<div class="p-6 bg-white">
+  <div class="space-y-2">
+    <p class="text-sm text-gray-600">Content before</p>
+    <%= render Foundation::DividerComponent.new(spacing: :none, thickness: :thin) %>
+    <p class="text-sm text-gray-600">None spacing (my-0)</p>
+  </div>
+
+  <div class="space-y-2">
+    <p class="text-sm text-gray-600">Content before</p>
+    <%= render Foundation::DividerComponent.new(spacing: :small, thickness: :thin) %>
+    <p class="text-sm text-gray-600">Small spacing (my-2)</p>
+  </div>
+
+  <div class="space-y-2">
+    <p class="text-sm text-gray-600">Content before</p>
+    <%= render Foundation::DividerComponent.new(spacing: :medium, thickness: :thin) %>
+    <p class="text-sm text-gray-600">Medium spacing (my-4)</p>
+  </div>
+
+  <div class="space-y-2">
+    <p class="text-sm text-gray-600">Content before</p>
+    <%= render Foundation::DividerComponent.new(spacing: :large, thickness: :thin) %>
+    <p class="text-sm text-gray-600">Large spacing (my-6)</p>
+  </div>
+
+  <div class="space-y-2">
+    <p class="text-sm text-gray-600">Content before</p>
+    <%= render Foundation::DividerComponent.new(spacing: :xlarge, thickness: :thin) %>
+    <p class="text-sm text-gray-600">XLarge spacing (my-8)</p>
+  </div>
+</div>

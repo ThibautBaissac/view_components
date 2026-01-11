@@ -1,0 +1,26 @@
+fr:
+  components:
+    form:
+      field:
+        checkbox:
+          # Libellés de cases à cocher courants
+          labels:
+            terms: "J'accepte les conditions générales"
+            privacy: "J'accepte la politique de confidentialité"
+            newsletter: "S'abonner à notre newsletter"
+            marketing: "Recevoir des emails marketing"
+            notifications: "Activer les notifications"
+            remember_me: "Se souvenir de moi"
+            agree: "J'accepte"
+            accept: "J'accepte"
+            confirm: "Je confirme"
+
+          # Indices courants pour les cases à cocher
+          hints:
+            terms: "Vous devez accepter pour continuer"
+            privacy: "Requis pour utiliser ce service"
+            newsletter: "Vous pouvez vous désabonner à tout moment"
+            marketing: "Nous vous enverrons occasionnellement des mises à jour sur les nouvelles fonctionnalités"
+            notifications: "Recevez des mises à jour en temps réel"
+            remember_me: "Rester connecté sur cet appareil"
+            optional: "Ceci est facultatif"

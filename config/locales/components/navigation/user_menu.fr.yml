@@ -1,0 +1,7 @@
+fr:
+  components:
+    navigation:
+      user_menu:
+        user_role_label: "Wedding Planner"
+        sign_out_text: "Déconnexion"
+        super_admin_badge_text: "Super Admin"

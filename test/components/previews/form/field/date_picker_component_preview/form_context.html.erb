@@ -1,0 +1,47 @@
+<div class="max-w-md space-y-6 p-4">
+  <h2 class="text-lg font-semibold text-gray-900">Date Selection Form</h2>
+
+  <form action="#" method="post" class="space-y-4">
+    <%= render Form::Field::DatePickerComponent.new(
+      name: "start_date",
+      label: "Project Start Date",
+      min: Date.today,
+      required: true,
+      hint: "When should the project begin?"
+    ) %>
+
+    <%= render Form::Field::DatePickerComponent.new(
+      name: "end_date",
+      label: "Project End Date",
+      min: Date.today + 1.day,
+      required: true,
+      hint: "When should the project be completed?"
+    ) %>
+
+    <%= render Form::Field::DatePickerComponent.new(
+      name: "milestone_date",
+      label: "First Milestone",
+      clearable: true,
+      hint: "Optional: Set a milestone date."
+    ) %>
+
+    <%= render Form::Field::DatePickerComponent.new(
+      name: "review_date",
+      label: "Review Date",
+      min: Date.today,
+      max: Date.today + 90.days,
+      clearable: true,
+      hint: "Schedule a review within the next 90 days."
+    ) do |component|
+      component.with_icon_leading do
+        render(Foundation::IconComponent.new(name: "calendar", size: :small))
+      end
+    end %>
+
+    <div class="pt-4">
+      <%= render Foundation::ButtonComponent.new(type: :submit, variant: :primary) do %>
+        Submit
+      <% end %>
+    </div>
+  </form>
+</div>

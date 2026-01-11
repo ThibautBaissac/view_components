@@ -1,0 +1,29 @@
+<div <%= tag.attributes(merged_html_attributes_with_wrapper) %>>
+  <%# Trigger element with ARIA relationship to tooltip %>
+  <%# aria-describedby creates accessible association for screen readers %>
+  <%# Hover, focus, or tap on this element triggers tooltip display %>
+  <div data-components--tooltip-target="trigger" aria-describedby="<%= tooltip_id %>">
+    <%= content %>
+  </div>
+
+  <%# Tooltip bubble - initially hidden, shown on hover/focus/tap %>
+  <%# role="tooltip" identifies this as supplementary information %>
+  <%# aria-hidden managed by Stimulus controller based on visibility state %>
+  <%# Keyboard accessible: Focus shows tooltip, ESC hides it %>
+  <div id="<%= tooltip_id %>"
+       class="<%= tooltip_classes %>"
+       role="tooltip"
+       data-components--tooltip-target="tooltip"
+       aria-hidden="true">
+    <% if has_rich_content? %>
+      <%= tooltip_content %>
+    <% else %>
+      <%= tooltip_text %>
+    <% end %>
+
+    <% if show_arrow? %>
+      <%# Visual arrow pointing to trigger element %>
+      <div class="<%= arrow_classes %>" data-components--tooltip-target="arrow"></div>
+    <% end %>
+  </div>
+</div>

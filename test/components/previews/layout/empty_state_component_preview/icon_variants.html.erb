@@ -1,0 +1,21 @@
+<div class="space-y-8 p-6">
+  <div class="border border-slate-200 rounded-lg p-6">
+    <h3 class="text-sm font-medium text-slate-900 mb-4">Outline Icons (Default)</h3>
+    <%= render(Layout::EmptyStateComponent.new(
+      icon_name: "calendar",
+      icon_variant: :outline,
+      title: "Outline Icon",
+      description: "This uses the outline icon variant"
+    )) %>
+  </div>
+
+  <div class="border border-slate-200 rounded-lg p-6">
+    <h3 class="text-sm font-medium text-slate-900 mb-4">Solid Icons</h3>
+    <%= render(Layout::EmptyStateComponent.new(
+      icon_name: "calendar",
+      icon_variant: :solid,
+      title: "Solid Icon",
+      description: "This uses the solid icon variant"
+    )) %>
+  </div>
+</div>

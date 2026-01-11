@@ -1,0 +1,6 @@
+en:
+  components:
+    layout:
+      modal:
+        # ARIA labels for accessibility
+        close_button_aria_label: "Close modal"

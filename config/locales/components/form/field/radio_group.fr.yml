@@ -1,0 +1,6 @@
+fr:
+  components:
+    form:
+      field:
+        radio_group:
+          legend: "Sélectionnez une option"

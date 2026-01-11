@@ -1,0 +1,28 @@
+<div class="p-6 bg-white">
+  <div class="flex items-center space-x-4 h-32">
+    <div class="flex-1 text-center">
+      <p class="text-sm text-gray-600">Section 1</p>
+    </div>
+
+    <%= render Foundation::DividerComponent.new(
+      orientation: :vertical,
+      thickness: :hairline,
+      spacing: :medium
+    ) %>
+
+    <div class="flex-1 text-center">
+      <p class="text-sm text-gray-600">Section 2</p>
+    </div>
+
+    <%= render Foundation::DividerComponent.new(
+      orientation: :vertical,
+      thickness: :thin,
+      color: :primary,
+      spacing: :medium
+    ) %>
+
+    <div class="flex-1 text-center">
+      <p class="text-sm text-gray-600">Section 3</p>
+    </div>
+  </div>
+</div>

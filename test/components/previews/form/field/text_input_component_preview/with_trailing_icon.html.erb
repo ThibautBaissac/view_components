@@ -1,0 +1,10 @@
+<%= render(Form::Field::TextInputComponent.new(
+  name: "search",
+  label: "Search",
+  type: :search,
+  placeholder: "Search..."
+)) do |input| %>
+  <% input.with_icon_trailing do %>
+    <%= render(Foundation::IconComponent.new(name: "magnifying-glass", size: :small)) %>
+  <% end %>
+<% end %>

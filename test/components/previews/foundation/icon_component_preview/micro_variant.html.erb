@@ -1,0 +1,81 @@
+<div class="p-6 space-y-6">
+  <div class="flex items-center gap-4">
+    <h3 class="text-sm font-semibold text-gray-900">Micro Icons (16x16)</h3>
+    <span class="text-xs text-gray-500">Optimized for dense layouts and inline text</span>
+  </div>
+
+  <div class="grid grid-cols-12 gap-4">
+    <% %w[
+      check x-mark plus minus
+      chevron-up chevron-down chevron-left chevron-right
+      arrow-up arrow-down arrow-left arrow-right
+      pencil trash eye eye-slash
+      heart star bell user
+      cog-6-tooth magnifying-glass envelope home
+    ].each do |icon_name| %>
+      <div class="flex flex-col items-center gap-2 p-2 rounded hover:bg-gray-50">
+        <%= render(Foundation::IconComponent.new(name: icon_name, variant: :micro, size: :small)) %>
+        <span class="text-[10px] text-gray-400 text-center leading-tight"><%= icon_name %></span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-8 p-4 bg-purple-50 rounded-lg border border-purple-200">
+    <h4 class="text-sm font-medium text-purple-900 mb-3">Usage Examples</h4>
+
+    <div class="space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="text-xs text-gray-700">
+          <%= render(Foundation::IconComponent.new(name: "information-circle", variant: :micro, size: :xs, color: :info)) %>
+          This is inline help text with a micro icon
+        </div>
+        <span class="text-xs text-gray-600">Inline with text</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1">
+          <%= render(Foundation::IconComponent.new(name: "star", variant: :micro, size: :xs, color: :warning)) %>
+          <%= render(Foundation::IconComponent.new(name: "star", variant: :micro, size: :xs, color: :warning)) %>
+          <%= render(Foundation::IconComponent.new(name: "star", variant: :micro, size: :xs, color: :warning)) %>
+          <%= render(Foundation::IconComponent.new(name: "star", variant: :micro, size: :xs, color: :warning)) %>
+          <%= render(Foundation::IconComponent.new(name: "star", variant: :micro, size: :xs, color: :muted)) %>
+          <span class="text-xs text-gray-600 ml-1">4.0</span>
+        </div>
+        <span class="text-xs text-gray-600">Rating display</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <table class="text-xs">
+          <tr>
+            <td class="pr-2">
+              <%= render(Foundation::IconComponent.new(name: "check-circle", variant: :micro, size: :xs, color: :success)) %>
+            </td>
+            <td>Feature enabled</td>
+          </tr>
+          <tr>
+            <td class="pr-2">
+              <%= render(Foundation::IconComponent.new(name: "x-circle", variant: :micro, size: :xs, color: :danger)) %>
+            </td>
+            <td>Feature disabled</td>
+          </tr>
+        </table>
+        <span class="text-xs text-gray-600">Dense table layout</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <nav class="flex gap-2 text-xs">
+          <a href="#" class="flex items-center gap-1 text-gray-600 hover:text-gray-900">
+            <%= render(Foundation::IconComponent.new(name: "home", variant: :micro, size: :xs)) %>
+            Home
+          </a>
+          <%= render(Foundation::IconComponent.new(name: "chevron-right", variant: :micro, size: :xs, color: :muted)) %>
+          <a href="#" class="flex items-center gap-1 text-gray-600 hover:text-gray-900">
+            <%= render(Foundation::IconComponent.new(name: "folder", variant: :micro, size: :xs)) %>
+            Projects
+          </a>
+        </nav>
+        <span class="text-xs text-gray-600">Compact breadcrumbs</span>
+      </div>
+    </div>
+  </div>
+</div>

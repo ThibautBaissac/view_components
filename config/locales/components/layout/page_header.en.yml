@@ -1,0 +1,12 @@
+en:
+  components:
+    layout:
+      page_header:
+        # Back navigation
+        back_link: "← Back to list"
+        back_link_label: "Return to previous page"
+
+        # ARIA labels for accessibility
+        breadcrumb: "Breadcrumb"
+        badge_label: "Status"
+        actions_label: "Page actions"

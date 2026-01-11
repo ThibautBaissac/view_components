@@ -1,0 +1,10 @@
+<%= render(Form::Field::TextInputComponent.new(
+  name: "email",
+  label: "Email Address",
+  type: :email,
+  placeholder: "you@example.com"
+)) do |input| %>
+  <% input.with_icon_leading do %>
+    <%= render(Foundation::IconComponent.new(name: "envelope", size: :small)) %>
+  <% end %>
+<% end %>

@@ -1,0 +1,13 @@
+<%= render(Form::Field::TextInputComponent.new(
+  name: "email",
+  label: "Work Email",
+  type: :email,
+  placeholder: "name@company.com",
+  hint: "Use your work email for team collaboration features.",
+  required: true,
+  autocomplete: "email"
+)) do |input| %>
+  <% input.with_icon_leading do %>
+    <%= render(Foundation::IconComponent.new(name: "envelope", size: :small)) %>
+  <% end %>
+<% end %>

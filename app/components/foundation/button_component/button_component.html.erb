@@ -1,0 +1,22 @@
+<button class="<%= element_classes %>" <%= tag.attributes(merged_html_attributes) %>>
+  <% if loading? %>
+    <%= render(Foundation::IconComponent.new(
+      name: "spinner",
+      set: :custom,
+      class: "animate-spin"
+    )) %>
+    <span class="sr-only"><%= t("components.foundation.button.loading") %></span>
+  <% end %>
+
+  <% if icon_leading? && !loading? %>
+    <%= icon_leading %>
+  <% end %>
+
+  <% if @text.present? || content.present? %>
+    <span><%= @text || content %></span>
+  <% end %>
+
+  <% if icon_trailing? && !loading? %>
+    <%= icon_trailing %>
+  <% end %>
+</button>

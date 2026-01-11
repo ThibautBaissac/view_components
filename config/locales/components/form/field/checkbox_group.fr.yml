@@ -1,0 +1,26 @@
+fr:
+  components:
+    form:
+      field:
+        checkbox_group:
+          # Libellés courants pour les groupes de cases à cocher
+          labels:
+            interests: "Vos centres d'intérêt"
+            notifications: "Préférences de notification"
+            permissions: "Permissions utilisateur"
+            features: "Fonctionnalités activées"
+            agreements: "Accords légaux"
+            categories: "Catégories"
+            days: "Jours disponibles"
+            options: "Sélectionner des options"
+
+          # Indices courants pour les groupes de cases à cocher
+          hints:
+            interests: "Sélectionnez tout ce qui s'applique"
+            notifications: "Choisissez comment vous souhaitez être notifié"
+            permissions: "Sélectionnez les permissions pour ce rôle"
+            features: "Activer ou désactiver les fonctionnalités"
+            agreements: "Vous devez accepter tous les accords requis pour continuer"
+            categories: "Sélectionnez au moins une catégorie"
+            optional: "Ceci est facultatif"
+            required: "Au moins une sélection est requise"

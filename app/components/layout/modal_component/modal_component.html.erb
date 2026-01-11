@@ -1,0 +1,62 @@
+<dialog
+  class="<%= dialog_classes %>"
+  <%= tag.attributes(merged_html_attributes) %>
+  aria-modal="true"
+  aria-labelledby="<%= @id %>-title"
+  aria-describedby="<%= @id %>-description"
+  data-action="click->components--modal#backdropClick"
+>
+  <div class="<%= panel_classes %>" data-components--modal-target="panel">
+    <% if show_header? || show_close_button? %>
+      <div class="<%= header_classes %>">
+        <% if header? %>
+          <%= header %>
+        <% elsif show_default_title? %>
+          <h2 id="<%= @id %>-title" class="<%= title_classes %>"><%= @title %></h2>
+        <% end %>
+
+        <% if show_close_button? %>
+          <% if close_button? %>
+            <%= close_button %>
+          <% else %>
+            <%= render Foundation::ButtonComponent.new(
+              variant: :ghost,
+              size: :small,
+              type: :button,
+              class: close_button_classes,
+              aria: { label: close_button_aria_label },
+              data: { action: "click->components--modal#close" }
+            ) do |button| %>
+              <% button.with_icon_leading do %>
+                <%= render Foundation::IconComponent.new(
+                  name: "x-mark",
+                  size: :medium,
+                  variant: :solid,
+                  aria: { hidden: "true" }
+                ) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if has_slots? %>
+      <% if body? %>
+        <div class="<%= body_classes %>" id="<%= @id %>-description">
+          <%= body %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="<%= body_classes %>" id="<%= @id %>-description">
+        <%= content %>
+      </div>
+    <% end %>
+
+    <% if show_footer? %>
+      <div class="<%= footer_classes %>">
+        <%= footer %>
+      </div>
+    <% end %>
+  </div>
+</dialog>

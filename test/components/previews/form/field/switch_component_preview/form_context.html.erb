@@ -1,0 +1,76 @@
+<div class="max-w-md p-6 bg-white rounded-lg shadow-sm border border-slate-200">
+  <h2 class="text-lg font-semibold text-slate-900 mb-1">Notification Settings</h2>
+  <p class="text-sm text-slate-500 mb-6">Manage how you receive notifications and updates.</p>
+
+  <form class="space-y-5">
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "email_notifications",
+      label: "Email notifications",
+      hint: "Receive email updates about your account activity.",
+      checked: true
+    )) %>
+
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "push_notifications",
+      label: "Push notifications",
+      hint: "Receive push notifications on your devices."
+    )) %>
+
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "sms_notifications",
+      label: "SMS notifications",
+      hint: "Receive text messages for important updates."
+    )) %>
+
+    <hr class="border-slate-200 my-4">
+
+    <h3 class="text-md font-medium text-slate-900 mb-4">Privacy Settings</h3>
+
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "profile_visibility",
+      label: "Public profile",
+      hint: "Allow others to see your profile information.",
+      checked: true
+    )) %>
+
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "activity_status",
+      label: "Show activity status",
+      hint: "Let others see when you're online."
+    )) %>
+
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "analytics_tracking",
+      label: "Usage analytics",
+      hint: "Help us improve by sharing anonymous usage data.",
+      checked: true,
+      disabled: true
+    )) %>
+
+    <hr class="border-slate-200 my-4">
+
+    <h3 class="text-md font-medium text-slate-900 mb-4">Required Consent</h3>
+
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "terms_consent",
+      label: "Accept Terms of Service",
+      required: true
+    )) %>
+
+    <%= render(Form::Field::SwitchComponent.new(
+      name: "privacy_consent",
+      label: "Accept Privacy Policy",
+      error: "You must accept the privacy policy to continue.",
+      required: true
+    )) %>
+
+    <div class="pt-4 flex gap-3">
+      <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+        Save Settings
+      </button>
+      <button type="button" class="px-4 py-2 bg-slate-200 text-slate-700 rounded-md hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

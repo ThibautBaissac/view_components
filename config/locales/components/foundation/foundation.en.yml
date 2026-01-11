@@ -1,0 +1,7 @@
+en:
+  components:
+    foundation:
+      spinner:
+        aria_label: "Loading..."
+      button:
+        loading: "Loading..."

@@ -1,0 +1,46 @@
+<div class="p-6 bg-white">
+  <div class="inline-flex items-center border border-gray-200 rounded-lg p-2 space-x-2">
+    <button class="px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 rounded">
+      Bold
+    </button>
+    <button class="px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 rounded">
+      Italic
+    </button>
+    <button class="px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 rounded">
+      Underline
+    </button>
+
+    <div class="h-6">
+      <%= render Foundation::DividerComponent.new(
+        orientation: :vertical,
+        thickness: :hairline,
+        spacing: :small
+      ) %>
+    </div>
+
+    <button class="px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 rounded">
+      Align Left
+    </button>
+    <button class="px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 rounded">
+      Align Center
+    </button>
+    <button class="px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 rounded">
+      Align Right
+    </button>
+
+    <div class="h-6">
+      <%= render Foundation::DividerComponent.new(
+        orientation: :vertical,
+        thickness: :hairline,
+        spacing: :small
+      ) %>
+    </div>
+
+    <button class="px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 rounded">
+      Link
+    </button>
+    <button class="px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 rounded">
+      Image
+    </button>
+  </div>
+</div>

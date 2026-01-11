@@ -1,0 +1,41 @@
+<div
+  class="<%= computed_classes %>"
+  <%= tag.attributes(merged_html_attributes) %>
+>
+  <% if icon? %>
+    <div class="<%= icon_classes %>"><%= icon %></div>
+  <% elsif show_icon? %>
+    <div class="<%= icon_classes %>"><%= render default_icon %></div>
+  <% end %>
+
+  <div class="<%= content_classes %>">
+    <% if title? %>
+      <div class="<%= title_classes %>"><%= title %></div>
+    <% end %>
+
+    <div class="<%= message_classes %>"><%= @message %></div>
+
+    <% if show_actions? %>
+      <div class="<%= actions_container_classes %>">
+        <% actions.each do |action| %>
+          <%= action %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @dismissible %>
+    <%= render Foundation::ButtonComponent.new(
+      variant: :ghost,
+      size: :small,
+      type: :button,
+      class: "flex-shrink-0 ml-auto -mr-1 -mt-1 text-current hover:opacity-75",
+      aria: { label: dismiss_label },
+      data: { action: "click->components--alert#dismiss" }
+    ) do |button| %>
+      <% button.with_icon_leading do %>
+        <%= render Foundation::IconComponent.new(name: "x-mark", size: :small, variant: :solid) %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

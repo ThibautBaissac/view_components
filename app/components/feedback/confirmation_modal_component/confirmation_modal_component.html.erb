@@ -1,0 +1,82 @@
+<%= render Layout::ModalComponent.new(
+  id: @id,
+  size: :small,
+  dismissible: true,
+  class: computed_classes,
+  **modal_html_attributes
+) do |modal| %>
+  <% modal.with_body do %>
+    <div class="text-center py-4">
+      <%# Icon %>
+      <% if show_custom_icon? %>
+        <div class="<%= icon_container_classes %>">
+          <%= icon %>
+        </div>
+      <% elsif show_icon? %>
+        <div class="<%= icon_container_classes %>">
+          <%= render default_icon %>
+        </div>
+      <% end %>
+
+      <%# Title %>
+      <h3 class="<%= title_classes %> mt-4" id="<%= @id %>-title">
+        <%= @title %>
+      </h3>
+
+      <%# Message %>
+      <p class="<%= message_classes %> mt-2" id="<%= message_id %>">
+        <%= @message %>
+      </p>
+
+      <%# Optional description slot %>
+      <% if description? %>
+        <div class="<%= description_classes %>">
+          <%= description %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% modal.with_footer do %>
+    <div class="<%= actions_classes %> w-full">
+      <% if form_slot? %>
+        <%# Custom form slot for complex actions %>
+        <%= form %>
+      <% elsif confirm_url? %>
+        <%# Link-based confirmation %>
+        <%= render Foundation::ButtonComponent.new(
+          text: @cancel_text,
+          variant: :secondary,
+          class: "flex-1 sm:flex-none",
+          data: cancel_button_data
+        ) %>
+
+        <%= render Foundation::LinkComponent.new(
+          text: @confirm_text,
+          href: @confirm_url,
+          variant: confirm_button_variant,
+          class: "flex-1 sm:flex-none text-center",
+          data: confirm_link_data
+        ) %>
+      <% else %>
+        <%# Button-only confirmation (for JavaScript handling) %>
+        <%= render Foundation::ButtonComponent.new(
+          text: @cancel_text,
+          variant: :secondary,
+          class: "flex-1 sm:flex-none",
+          data: cancel_button_data
+        ) %>
+
+        <%= render Foundation::ButtonComponent.new(
+          text: @confirm_text,
+          variant: confirm_button_variant,
+          class: "flex-1 sm:flex-none",
+          data: {
+            action: "click->components--confirmation-modal#confirm",
+            "components--confirmation-modal-target": "confirmButton"
+          }
+        ) %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

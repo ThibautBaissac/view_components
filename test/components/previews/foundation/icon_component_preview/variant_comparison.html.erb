@@ -1,0 +1,130 @@
+<div class="p-6 space-y-8">
+  <div>
+    <h3 class="text-sm font-semibold text-gray-900 mb-2">Variant Size Comparison</h3>
+    <p class="text-xs text-gray-600">All four Heroicon variants rendered at their optimal sizes</p>
+  </div>
+
+  <div class="grid grid-cols-4 gap-6">
+    <!-- Outline -->
+    <div class="space-y-4">
+      <div class="text-center">
+        <h4 class="text-sm font-medium text-gray-900">Outline</h4>
+        <p class="text-xs text-gray-500 mt-1">24×24 stroke</p>
+      </div>
+      <div class="flex flex-col items-center gap-3 p-4 bg-gray-50 rounded-lg">
+        <%= render(Foundation::IconComponent.new(name: "bell", variant: :outline, size: :large)) %>
+        <span class="text-xs text-gray-500">Default</span>
+      </div>
+      <div class="space-y-2">
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "check", variant: :outline, size: :medium)) %>
+          <span class="text-xs text-gray-600">Checkmark</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "user", variant: :outline, size: :medium)) %>
+          <span class="text-xs text-gray-600">User</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "heart", variant: :outline, size: :medium)) %>
+          <span class="text-xs text-gray-600">Heart</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solid -->
+    <div class="space-y-4">
+      <div class="text-center">
+        <h4 class="text-sm font-medium text-gray-900">Solid</h4>
+        <p class="text-xs text-gray-500 mt-1">24×24 filled</p>
+      </div>
+      <div class="flex flex-col items-center gap-3 p-4 bg-gray-50 rounded-lg">
+        <%= render(Foundation::IconComponent.new(name: "bell", variant: :solid, size: :large)) %>
+        <span class="text-xs text-gray-500">Filled</span>
+      </div>
+      <div class="space-y-2">
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "check", variant: :solid, size: :medium)) %>
+          <span class="text-xs text-gray-600">Checkmark</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "user", variant: :solid, size: :medium)) %>
+          <span class="text-xs text-gray-600">User</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "heart", variant: :solid, size: :medium)) %>
+          <span class="text-xs text-gray-600">Heart</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mini -->
+    <div class="space-y-4">
+      <div class="text-center">
+        <h4 class="text-sm font-medium text-gray-900">Mini</h4>
+        <p class="text-xs text-gray-500 mt-1">20×20 solid</p>
+      </div>
+      <div class="flex flex-col items-center gap-3 p-4 bg-blue-50 rounded-lg">
+        <%= render(Foundation::IconComponent.new(name: "bell", variant: :mini, size: :medium)) %>
+        <span class="text-xs text-blue-700">Compact</span>
+      </div>
+      <div class="space-y-2">
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "check", variant: :mini, size: :medium)) %>
+          <span class="text-xs text-gray-600">Checkmark</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "user", variant: :mini, size: :medium)) %>
+          <span class="text-xs text-gray-600">User</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "heart", variant: :mini, size: :medium)) %>
+          <span class="text-xs text-gray-600">Heart</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Micro -->
+    <div class="space-y-4">
+      <div class="text-center">
+        <h4 class="text-sm font-medium text-gray-900">Micro</h4>
+        <p class="text-xs text-gray-500 mt-1">16×16 solid</p>
+      </div>
+      <div class="flex flex-col items-center gap-3 p-4 bg-purple-50 rounded-lg">
+        <%= render(Foundation::IconComponent.new(name: "bell", variant: :micro, size: :small)) %>
+        <span class="text-xs text-purple-700">Dense</span>
+      </div>
+      <div class="space-y-2">
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "check", variant: :micro, size: :small)) %>
+          <span class="text-xs text-gray-600">Checkmark</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "user", variant: :micro, size: :small)) %>
+          <span class="text-xs text-gray-600">User</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <%= render(Foundation::IconComponent.new(name: "heart", variant: :micro, size: :small)) %>
+          <span class="text-xs text-gray-600">Heart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+    <h4 class="text-sm font-medium text-gray-900 mb-3">Choosing the Right Variant</h4>
+    <div class="grid grid-cols-2 gap-4 text-xs text-gray-700">
+      <div>
+        <span class="font-semibold">Outline:</span> Default choice for most UI elements
+      </div>
+      <div>
+        <span class="font-semibold">Solid:</span> Emphasis, active states, filled buttons
+      </div>
+      <div>
+        <span class="font-semibold">Mini:</span> Compact buttons, small badges, tight layouts
+      </div>
+      <div>
+        <span class="font-semibold">Micro:</span> Dense tables, inline text, breadcrumbs
+      </div>
+    </div>
+  </div>
+</div>

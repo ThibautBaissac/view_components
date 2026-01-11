@@ -1,0 +1,7 @@
+fr:
+  components:
+    form:
+      field:
+        select:
+          prompt: "Veuillez sélectionner..."
+          include_blank: "-- Aucun --"

@@ -1,0 +1,18 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Danger confirmation for destructive actions:</p>
+
+  <%= render Foundation::ButtonComponent.new(
+    text: "Delete Item",
+    variant: :danger,
+    data: Feedback::ConfirmationModalComponent.trigger_attributes(modal_id: modal_id)
+  ) %>
+
+  <%= render Feedback::ConfirmationModalComponent.new(
+    id: modal_id,
+    title: "Delete Item",
+    message: "Are you sure you want to delete this item? This action cannot be undone.",
+    confirm_text: "Delete",
+    cancel_text: "Cancel",
+    type: :danger
+  ) %>
+</div>

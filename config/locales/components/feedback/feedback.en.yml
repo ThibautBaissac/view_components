@@ -1,0 +1,12 @@
+en:
+  components:
+    feedback:
+      alert:
+        dismiss: "Dismiss alert"
+        dismiss_short: "Dismiss"
+      confirmation_modal:
+        confirm: "Confirm"
+        cancel: "Cancel"
+        danger_confirm: "Delete"
+        warning_confirm: "Continue"
+        info_confirm: "OK"

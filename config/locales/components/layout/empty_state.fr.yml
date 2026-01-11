@@ -1,0 +1,17 @@
+fr:
+  components:
+    layout:
+      empty_state:
+        titles:
+          no_events: "Aucun événement"
+          no_vendors: "Aucun prestataire"
+          no_search_results: "Aucun résultat trouvé"
+          no_items: "Aucun élément"
+          no_data: "Aucune donnée disponible"
+          empty: "Rien ici"
+        descriptions:
+          create_first_event: "Commencez par créer votre premier événement"
+          add_first_vendor: "Ajoutez votre premier prestataire pour commencer"
+          adjust_filters: "Essayez d'ajuster vos filtres de recherche"
+          start_adding: "Commencez à ajouter des éléments pour les voir ici"
+          check_back: "Revenez plus tard pour les mises à jour"

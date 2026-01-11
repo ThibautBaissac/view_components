@@ -1,0 +1,6 @@
+fr:
+  components:
+    form:
+      field:
+        text_input:
+          placeholder: "Saisissez du texte..."

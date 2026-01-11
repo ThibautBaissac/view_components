@@ -1,0 +1,28 @@
+<div class="space-y-4">
+  <div>
+    <%= render(Form::Field::RadioComponent.new(
+      name: "size_comparison",
+      value: "small",
+      label: "Small radio button",
+      size: :small
+    )) %>
+  </div>
+
+  <div>
+    <%= render(Form::Field::RadioComponent.new(
+      name: "size_comparison",
+      value: "medium",
+      label: "Medium radio button (default)",
+      size: :medium
+    )) %>
+  </div>
+
+  <div>
+    <%= render(Form::Field::RadioComponent.new(
+      name: "size_comparison",
+      value: "large",
+      label: "Large radio button",
+      size: :large
+    )) %>
+  </div>
+</div>

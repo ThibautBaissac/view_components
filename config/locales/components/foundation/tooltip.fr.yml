@@ -1,0 +1,6 @@
+fr:
+  components:
+    foundation:
+      tooltip:
+        aria_label: "Info-bulle"
+        close_hint: "Appuyez sur Échap pour fermer"

@@ -1,0 +1,28 @@
+<fieldset class="<%= wrapper_classes %>"
+          id="<%= @id %>"
+          aria-describedby="<%= aria_describedby %>"
+          <%= 'aria-required="true"'.html_safe if @required %>
+          <%= fieldset_html_attributes %>>
+  <% if has_label? %>
+    <legend class="<%= legend_classes %>">
+      <%= @label %>
+      <%= required_indicator_html %>
+    </legend>
+  <% end %>
+
+  <div class="<%= checkboxes_container_classes %>">
+    <% normalized_options.each_with_index do |(label, value), index| %>
+      <%= render_checkbox_option(label, value, index) %>
+    <% end %>
+  </div>
+
+  <% if has_hint? && !has_error? %>
+    <p id="<%= hint_id %>" class="<%= hint_classes %> mt-2"><%= @hint %></p>
+  <% end %>
+
+  <% if has_error? %>
+    <p id="<%= error_id %>" class="<%= error_classes %> mt-2" role="alert">
+      <%= @error %>
+    </p>
+  <% end %>
+</fieldset>

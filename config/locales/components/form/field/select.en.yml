@@ -1,0 +1,7 @@
+en:
+  components:
+    form:
+      field:
+        select:
+          prompt: "Please select..."
+          include_blank: "-- None --"

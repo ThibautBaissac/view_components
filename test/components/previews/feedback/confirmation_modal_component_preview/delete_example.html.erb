@@ -1,0 +1,31 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Real-world example: Delete item with URL action</p>
+
+  <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+    <div class="flex items-center justify-between">
+      <div>
+        <h4 class="font-medium text-gray-900">Project Alpha</h4>
+        <p class="text-sm text-gray-500">Created 3 days ago</p>
+      </div>
+      <%= render Foundation::ButtonComponent.new(
+        text: "Delete",
+        variant: :danger,
+        size: :small,
+        data: Feedback::ConfirmationModalComponent.trigger_attributes(modal_id: modal_id)
+      ) %>
+    </div>
+  </div>
+
+  <%= render Feedback::ConfirmationModalComponent.new(
+    id: modal_id,
+    title: "Delete Project",
+    message: "Are you sure you want to delete 'Project Alpha'? All files, tasks, and comments will be permanently removed.",
+    confirm_text: "Delete Project",
+    cancel_text: "Cancel",
+    confirm_url: "#delete-project",
+    confirm_method: :delete,
+    type: :danger
+  ) do |modal| %>
+    <% modal.with_icon(name: "trash", variant: :outline, color: :danger, size: :large) %>
+  <% end %>
+</div>

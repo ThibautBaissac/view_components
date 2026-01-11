@@ -1,0 +1,64 @@
+<div class="<%= wrapper_classes %>">
+  <% if has_label? %>
+    <label for="<%= @id %>" class="<%= label_classes %>">
+      <%= @label %>
+
+      <% if @required %>
+        <span class="text-red-500 ml-0.5" aria-hidden="true">
+          <%= required_indicator %>
+        </span>
+      <% end %>
+    </label>
+  <% end %>
+
+  <div class="relative">
+    <select <%= tag.attributes(**merged_select_attributes) %>>
+      <% if @prompt.present? %>
+        <option value="" disabled selected><%= h(@prompt) %></option>
+      <% end %>
+
+      <% if @include_blank %>
+        <option value="">
+          <%= @include_blank.is_a?(String) ? h(@include_blank) : "" %>
+        </option>
+      <% end %>
+
+      <% if grouped_options? %>
+        <% @options.each do |group_label, group_options| %>
+          <optgroup label="<%= h(group_label) %>">
+            <% normalize_array_options(group_options).each do |label, value| %>
+              <option
+                value="<%= h(value) %>"
+                <%= "selected" if selected?(value) %>
+              >
+                <%= h(label) %>
+              </option>
+            <% end %>
+          </optgroup>
+        <% end %>
+      <% else %>
+        <% normalized_options.each do |label, value| %>
+          <option value="<%= h(value) %>" <%= "selected" if selected?(value) %>><%= h(label) %></option>
+        <% end %>
+      <% end %>
+    </select>
+
+    <div class="<%= icon_wrapper_classes %> <%= icon_color_classes %>">
+      <%= render(Foundation::IconComponent.new(
+        name: "chevron-down",
+        variant: :solid,
+        size: icon_size
+      )) %>
+    </div>
+  </div>
+
+  <% if has_hint? && !has_error? %>
+    <p id="<%= hint_id %>" class="<%= hint_classes %>"><%= @hint %></p>
+  <% end %>
+
+  <% if has_error? %>
+    <p id="<%= error_id %>" class="<%= error_classes %>" role="alert">
+      <%= @error %>
+    </p>
+  <% end %>
+</div>

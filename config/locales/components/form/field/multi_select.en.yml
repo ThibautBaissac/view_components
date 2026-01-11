@@ -1,0 +1,8 @@
+en:
+  components:
+    form:
+      field:
+        multi_select:
+          placeholder: "Select options..."
+          no_results: "No results found"
+          selected_count: "%{count} selected"

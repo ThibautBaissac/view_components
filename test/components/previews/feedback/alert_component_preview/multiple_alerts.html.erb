@@ -1,0 +1,8 @@
+<div class="space-y-4">
+  <% alerts.each do |alert| %>
+    <%= render(Feedback::AlertComponent.new(
+      message: alert[:message],
+      type: alert[:type]
+    )) %>
+  <% end %>
+</div>

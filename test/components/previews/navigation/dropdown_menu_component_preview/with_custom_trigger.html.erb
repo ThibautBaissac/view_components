@@ -1,0 +1,20 @@
+<div class="p-8">
+  <%= render Navigation::DropdownMenuComponent.new do |menu|
+    menu.with_trigger do
+      tag.button(class: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500") do
+        safe_join([
+          "Actions",
+          tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+            tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M19 9l-7 7-7-7")
+          }
+        ])
+      end
+    end
+
+    menu.with_item_link(text: "Edit", href: "#edit")
+    menu.with_item_link(text: "Duplicate", href: "#duplicate")
+    menu.with_item_divider
+    menu.with_item_link(text: "Archive", href: "#archive")
+    menu.with_item_link(text: "Delete", href: "#delete", destructive: true)
+  end %>
+</div>

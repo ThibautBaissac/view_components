@@ -1,0 +1,120 @@
+<div class="p-8 space-y-8">
+  <div class="text-center mb-8">
+    <h2 class="text-xl font-bold text-gray-900 mb-2">Dropdown Widths</h2>
+    <p class="text-gray-600">Different width options for dropdown menus</p>
+  </div>
+
+  <div class="flex flex-wrap justify-center gap-8">
+    <%# Auto width (minimum) %>
+    <div>
+      <p class="text-sm text-gray-600 mb-2 text-center">Auto (min-w-48)</p>
+
+      <%= render Navigation::DropdownMenuComponent.new(width: :auto) do |menu|
+        menu.with_trigger do
+          tag.button(class: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+            safe_join([
+              "Auto Width",
+              tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+                tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M19 9l-7 7-7-7")
+              }
+            ])
+          end
+        end
+
+        menu.with_item_link(text: "Short", href: "#")
+        menu.with_item_link(text: "Medium option", href: "#")
+      end %>
+    </div>
+
+    <%# Small width %>
+    <div>
+      <p class="text-sm text-gray-600 mb-2 text-center">Small (w-40)</p>
+
+      <%= render Navigation::DropdownMenuComponent.new(width: :small) do |menu|
+        menu.with_trigger do
+          tag.button(class: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+            safe_join([
+              "Small Width",
+              tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+                tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M19 9l-7 7-7-7")
+              }
+            ])
+          end
+        end
+
+        menu.with_item_link(text: "Option 1", href: "#")
+        menu.with_item_link(text: "Option 2", href: "#")
+      end %>
+    </div>
+
+    <%# Medium width %>
+    <div>
+      <p class="text-sm text-gray-600 mb-2 text-center">Medium (w-56)</p>
+
+      <%= render Navigation::DropdownMenuComponent.new(width: :medium) do |menu|
+        menu.with_trigger do
+          tag.button(class: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+            safe_join([
+              "Medium Width",
+              tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+                tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M19 9l-7 7-7-7")
+              }
+            ])
+          end
+        end
+
+        menu.with_item_link(text: "A longer option text", href: "#")
+        menu.with_item_link(text: "Another option", href: "#")
+        menu.with_item_link(text: "Third option", href: "#")
+      end %>
+    </div>
+
+    <%# Large width %>
+    <div>
+      <p class="text-sm text-gray-600 mb-2 text-center">Large (w-72)</p>
+
+      <%= render Navigation::DropdownMenuComponent.new(width: :large) do |menu|
+        menu.with_trigger do
+          tag.button(class: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+            safe_join([
+              "Large Width",
+              tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+                tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M19 9l-7 7-7-7")
+              }
+            ])
+          end
+        end
+
+        menu.with_item_link(text: "This is a much longer option text that fits", href: "#")
+        menu.with_item_link(text: "Another lengthy option", href: "#")
+        menu.with_item_link(text: "And one more", href: "#")
+      end %>
+    </div>
+  </div>
+
+  <%# Full width example %>
+  <div class="max-w-md mx-auto">
+    <p class="text-sm text-gray-600 mb-2 text-center">
+      Full Width (matches trigger)
+    </p>
+
+    <div class="w-full">
+      <%= render Navigation::DropdownMenuComponent.new(width: :full) do |menu|
+        menu.with_trigger do
+          tag.button(class: "w-full inline-flex items-center justify-between gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+            safe_join([
+              "Full Width Dropdown",
+              tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+                tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M19 9l-7 7-7-7")
+              }
+            ])
+          end
+        end
+
+        menu.with_item_link(text: "Option spans full width", href: "#")
+        menu.with_item_link(text: "Great for select-like dropdowns", href: "#")
+        menu.with_item_link(text: "Third option", href: "#")
+      end %>
+    </div>
+  </div>
+</div>

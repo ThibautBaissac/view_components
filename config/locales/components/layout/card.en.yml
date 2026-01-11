@@ -1,0 +1,10 @@
+en:
+  components:
+    layout:
+      card:
+        # ARIA labels for accessibility
+        region_label: "Card"
+        # Default text (if needed for future features)
+        close: "Close"
+        expand: "Expand"
+        collapse: "Collapse"

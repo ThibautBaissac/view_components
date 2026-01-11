@@ -1,0 +1,17 @@
+<a
+  href="<%= disabled? ? nil : @href %>"
+  class="<%= element_classes %>"
+  <%= tag.attributes(merged_html_attributes) %>
+>
+  <% if icon_leading? %>
+    <%= icon_leading %>
+  <% end %>
+
+  <% if @text.present? || content.present? %>
+    <span><%= @text || content %></span>
+  <% end %>
+
+  <% if icon_trailing? %>
+    <%= icon_trailing %>
+  <% end %>
+</a>

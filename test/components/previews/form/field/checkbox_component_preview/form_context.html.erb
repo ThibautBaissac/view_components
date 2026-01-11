@@ -1,0 +1,55 @@
+<div class="max-w-md space-y-6 p-6 bg-white rounded-lg border border-slate-200">
+  <h3 class="text-lg font-semibold text-slate-900">Notification Preferences</h3>
+
+  <div class="space-y-4">
+    <%= render Form::Field::CheckboxComponent.new(
+      name: "notifications[email]",
+      label: "Email notifications",
+      hint: "Receive updates about your account via email",
+      checked: true
+    ) %>
+
+    <%= render Form::Field::CheckboxComponent.new(
+      name: "notifications[sms]",
+      label: "SMS notifications",
+      hint: "Get text messages for urgent updates"
+    ) %>
+
+    <%= render Form::Field::CheckboxComponent.new(
+      name: "notifications[push]",
+      label: "Push notifications",
+      hint: "Receive browser push notifications"
+    ) %>
+
+    <%= render Form::Field::CheckboxComponent.new(
+      name: "notifications[marketing]",
+      label: "Marketing emails",
+      hint: "Occasional updates about new features and promotions"
+    ) %>
+  </div>
+
+  <hr class="border-slate-200">
+
+  <div class="space-y-4">
+    <%= render Form::Field::CheckboxComponent.new(
+      name: "terms",
+      label: "I agree to the terms of service",
+      required: true
+    ) %>
+
+    <%= render Form::Field::CheckboxComponent.new(
+      name: "privacy",
+      required: true
+    ) do |checkbox|
+      checkbox.with_label_content do
+        "I have read and agree to the <a href='/privacy' class='text-blue-600 hover:text-blue-800 underline'>privacy policy</a>".html_safe
+      end
+    end %>
+  </div>
+
+  <div class="pt-4">
+    <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+      Save Preferences
+    </button>
+  </div>
+</div>

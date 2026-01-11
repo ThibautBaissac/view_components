@@ -1,0 +1,26 @@
+en:
+  components:
+    form:
+      field:
+        checkbox_group:
+          # Common checkbox group labels
+          labels:
+            interests: "Your interests"
+            notifications: "Notification preferences"
+            permissions: "User permissions"
+            features: "Enabled features"
+            agreements: "Legal agreements"
+            categories: "Categories"
+            days: "Available days"
+            options: "Select options"
+
+          # Common hints for checkbox groups
+          hints:
+            interests: "Select all that apply"
+            notifications: "Choose how you want to be notified"
+            permissions: "Select the permissions for this role"
+            features: "Enable or disable features"
+            agreements: "You must accept all required agreements to continue"
+            categories: "Select at least one category"
+            optional: "This is optional"
+            required: "At least one selection is required"

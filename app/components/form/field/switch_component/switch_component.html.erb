@@ -1,0 +1,34 @@
+<div class="<%= wrapper_classes %>">
+  <% if include_hidden? %>
+    <input type="hidden" name="<%= @name %>" value="0" autocomplete="off">
+  <% end %>
+
+  <div class="<%= switch_container_classes %>">
+    <label for="<%= @id %>" class="<%= switch_input_wrapper_classes %>">
+      <input <%= tag.attributes(**merged_switch_attributes) %>>
+      <span class="<%= switch_track_classes %>" aria-hidden="true"></span>
+      <span class="<%= switch_knob_classes %>" aria-hidden="true"></span>
+    </label>
+
+    <% if has_label? %>
+      <label for="<%= @id %>" class="<%= label_classes %>">
+        <% if label_content? %>
+          <%= label_content %>
+        <% else %>
+          <%= @label %>
+        <% end %>
+        <%= required_indicator_html %>
+      </label>
+    <% end %>
+  </div>
+
+  <% if has_hint? && !has_error? %>
+    <p id="<%= hint_id %>" class="<%= hint_classes %> <%= hint_error_margin_classes %>"><%= @hint %></p>
+  <% end %>
+
+  <% if has_error? %>
+    <p id="<%= error_id %>" class="<%= error_classes %> <%= hint_error_margin_classes %>" role="alert">
+      <%= @error %>
+    </p>
+  <% end %>
+</div>

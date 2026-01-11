@@ -1,0 +1,6 @@
+fr:
+  components:
+    form:
+      field:
+        date_picker:
+          clear_button_label: "Effacer la date"

@@ -1,0 +1,10 @@
+fr:
+  components:
+    layout:
+      card:
+        # Labels ARIA pour l'accessibilité
+        region_label: "Carte"
+        # Texte par défaut (si nécessaire pour les fonctionnalités futures)
+        close: "Fermer"
+        expand: "Développer"
+        collapse: "Réduire"

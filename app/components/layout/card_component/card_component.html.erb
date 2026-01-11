@@ -1,0 +1,15 @@
+<article class="<%= card_classes %>" <%= tag.attributes(merged_html_attributes) %>>
+  <% if header? %>
+    <%= header %>
+  <% end %>
+
+  <div class="<%= content_padding_classes %>">
+    <%= content %>
+  </div>
+
+  <% if footer? %>
+    <div class="<%= footer_padding_classes %> border-t border-slate-200">
+      <%= footer %>
+    </div>
+  <% end %>
+</article>

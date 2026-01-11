@@ -1,0 +1,27 @@
+<div class="space-y-6 p-4 max-w-md">
+  <h3 class="text-lg font-medium text-slate-900 mb-4">Textarea Sizes</h3>
+
+  <%= render(Form::Field::TextareaComponent.new(
+    name: "small_textarea",
+    label: "Small",
+    size: :small,
+    rows: 3,
+    placeholder: "Small textarea..."
+  )) %>
+
+  <%= render(Form::Field::TextareaComponent.new(
+    name: "medium_textarea",
+    label: "Medium (Default)",
+    size: :medium,
+    rows: 3,
+    placeholder: "Medium textarea..."
+  )) %>
+
+  <%= render(Form::Field::TextareaComponent.new(
+    name: "large_textarea",
+    label: "Large",
+    size: :large,
+    rows: 3,
+    placeholder: "Large textarea..."
+  )) %>
+</div>

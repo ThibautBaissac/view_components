@@ -1,0 +1,16 @@
+<div class="space-y-8">
+  <div>
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Default</h3>
+    <%= render Navigation::PaginationComponent.new(pagy: pagy, variant: :default) %>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Compact</h3>
+    <%= render Navigation::PaginationComponent.new(pagy: pagy, variant: :compact) %>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-gray-700 mb-2">Minimal</h3>
+    <%= render Navigation::PaginationComponent.new(pagy: pagy, variant: :minimal) %>
+  </div>
+</div>

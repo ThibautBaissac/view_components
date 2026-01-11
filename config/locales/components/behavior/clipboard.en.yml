@@ -1,0 +1,8 @@
+en:
+  components:
+    behavior:
+      clipboard:
+        copy: "Copy"
+        copied: "Copied!"
+        copied_to_clipboard: "Copied to clipboard"
+        failed_to_copy: "Failed to copy to clipboard"

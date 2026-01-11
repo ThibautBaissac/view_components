@@ -1,0 +1,25 @@
+<div class="flex items-center justify-center gap-8 p-12">
+  <%= render(Foundation::TooltipComponent.new(text: "Edit", position: :bottom)) do %>
+    <%= tag.button(type: "button", class: "p-2 rounded-md hover:bg-gray-100", "aria-label": "Edit") do %>
+      <%= render(Foundation::IconComponent.new(name: "pencil-square", size: :medium, color: :secondary)) %>
+    <% end %>
+  <% end %>
+
+  <%= render(Foundation::TooltipComponent.new(text: "Delete", position: :bottom)) do %>
+    <%= tag.button(type: "button", class: "p-2 rounded-md hover:bg-gray-100", "aria-label": "Delete") do %>
+      <%= render(Foundation::IconComponent.new(name: "trash", size: :medium, color: :danger)) %>
+    <% end %>
+  <% end %>
+
+  <%= render(Foundation::TooltipComponent.new(text: "Share", position: :bottom)) do %>
+    <%= tag.button(type: "button", class: "p-2 rounded-md hover:bg-gray-100", "aria-label": "Share") do %>
+      <%= render(Foundation::IconComponent.new(name: "share", size: :medium, color: :primary)) %>
+    <% end %>
+  <% end %>
+
+  <%= render(Foundation::TooltipComponent.new(text: "Download", position: :bottom)) do %>
+    <%= tag.button(type: "button", class: "p-2 rounded-md hover:bg-gray-100", "aria-label": "Download") do %>
+      <%= render(Foundation::IconComponent.new(name: "arrow-down-tray", size: :medium, color: :success)) %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,30 @@
+en:
+  components:
+    navigation:
+      dropdown_menu:
+        default_trigger_text: "Options"
+        default_trigger_label: "Menu options"
+        menu_opened: "Menu opened"
+        menu_closed: "Menu closed"
+      pagination:
+        # Button text
+        previous: "Previous"
+        next: "Next"
+        prev_short: "Prev"
+        next_short: "Next"
+        # ARIA labels
+        previous_page_aria: "Previous page"
+        next_page_aria: "Next page"
+        first_page_aria: "First page"
+        last_page_aria: "Last page"
+        page_aria: "Page %{page}"
+        current_page_aria: "Page %{page}, current page"
+        # Page info
+        info: "%{from}–%{to} of %{count}"
+        page_of: "%{page} / %{total}"
+        # Screen reader announcements
+        navigating_to_page: "Navigating to page %{page}"
+        already_on_first_page: "Already on first page"
+        already_on_last_page: "Already on last page"
+        already_on_page: "Already on page %{page}"
+        page_loaded: "Page %{page} of %{total} loaded"

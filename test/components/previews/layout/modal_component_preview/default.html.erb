@@ -1,0 +1,19 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Click the button below to open the modal:</p>
+
+  <%= render Foundation::ButtonComponent.new(
+    text: "Open Modal",
+    variant: :primary,
+    data: Layout::ModalComponent.trigger_attributes(modal_id: modal_id)
+  ) %>
+
+  <%= render Layout::ModalComponent.new(
+    id: modal_id,
+    title: local_assigns[:title],
+    size: local_assigns.fetch(:size, :medium),
+    dismissible: local_assigns.fetch(:dismissible, true)
+  ) do %>
+    <p class="text-gray-600">This is the modal content. You can put any content here.</p>
+    <p class="text-gray-600 mt-2">Press ESC or click outside to close (if dismissible).</p>
+  <% end %>
+</div>

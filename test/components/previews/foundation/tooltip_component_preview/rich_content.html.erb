@@ -1,0 +1,13 @@
+<div class="flex items-center justify-center p-12">
+  <%= render(Foundation::TooltipComponent.new(size: :large)) do |tooltip| %>
+    <% tooltip.with_tooltip_content do %>
+      <div class="space-y-1">
+        <p class="font-semibold">Keyboard Shortcuts</p>
+        <p class="text-gray-300 text-xs">Ctrl + S - Save</p>
+        <p class="text-gray-300 text-xs">Ctrl + Z - Undo</p>
+        <p class="text-gray-300 text-xs">Ctrl + Y - Redo</p>
+      </div>
+    <% end %>
+    <%= tag.button("View shortcuts", type: "button", class: "px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700") %>
+  <% end %>
+</div>

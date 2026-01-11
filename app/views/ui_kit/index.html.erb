@@ -1,0 +1,843 @@
+<div class="min-h-screen bg-slate-50">
+  <div class="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <h1 class="text-3xl font-bold text-slate-900">UI Kit Showcase</h1>
+      <p class="mt-2 text-slate-600">Visual reference for all ViewComponents in EventEssentials</p>
+
+      <nav class="mt-6 flex gap-4 overflow-x-auto pb-2">
+        <a href="#admin" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-100 rounded-md whitespace-nowrap">Admin</a>
+        <a href="#foundation" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-100 rounded-md whitespace-nowrap">Foundation</a>
+        <a href="#form" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-100 rounded-md whitespace-nowrap">Form</a>
+        <a href="#layout" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-100 rounded-md whitespace-nowrap">Layout</a>
+        <a href="#navigation" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-100 rounded-md whitespace-nowrap">Navigation</a>
+        <a href="#feedback" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-100 rounded-md whitespace-nowrap">Feedback</a>
+        <a href="#display" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-100 rounded-md whitespace-nowrap">Display</a>
+        <a href="#behavior" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-100 rounded-md whitespace-nowrap">Behavior</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+
+    <!-- Admin Components -->
+    <section id="admin" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-indigo-500">Admin</h2>
+
+      <!-- Impersonation Banner -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Impersonation Banner</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <p class="text-sm text-slate-600 mb-4">Shown when an admin is impersonating a user</p>
+          <%
+            # Create mock user objects for demonstration
+            mock_user_class = Struct.new(:email, :super_admin?)
+            mock_admin = mock_user_class.new("admin@example.com", true)
+            mock_user = mock_user_class.new("user@example.com", false)
+          %>
+          <%= render Admin::ImpersonationBannerComponent.new(
+            true_user: mock_admin,
+            impersonated_user: mock_user
+          ) %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Foundation Components -->
+    <section id="foundation" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-indigo-500">Foundation</h2>
+
+      <!-- Buttons -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Buttons</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 space-y-4">
+          <div class="flex flex-wrap gap-3 items-center">
+            <div class="text-center">
+              <%= render Foundation::ButtonComponent.new(text: "Primary") %>
+              <p class="text-xs text-slate-500 mt-1">Primary</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::ButtonComponent.new(text: "Secondary", variant: :secondary) %>
+              <p class="text-xs text-slate-500 mt-1">Secondary</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::ButtonComponent.new(text: "Danger", variant: :danger) %>
+              <p class="text-xs text-slate-500 mt-1">Danger</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::ButtonComponent.new(text: "Ghost", variant: :ghost) %>
+              <p class="text-xs text-slate-500 mt-1">Ghost</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::ButtonComponent.new(text: "Disabled", disabled: true) %>
+              <p class="text-xs text-slate-500 mt-1">Disabled</p>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4">
+            <p class="text-xs text-slate-600 mb-2">Sizes:</p>
+            <div class="flex flex-wrap gap-3 items-center">
+              <div class="text-center">
+                <%= render Foundation::ButtonComponent.new(text: "Small", size: :small) %>
+                <p class="text-xs text-slate-500 mt-1">Small</p>
+              </div>
+              <div class="text-center">
+                <%= render Foundation::ButtonComponent.new(text: "Medium", size: :medium) %>
+                <p class="text-xs text-slate-500 mt-1">Medium</p>
+              </div>
+              <div class="text-center">
+                <%= render Foundation::ButtonComponent.new(text: "Large", size: :large) %>
+                <p class="text-xs text-slate-500 mt-1">Large</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Links</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex flex-wrap gap-4 items-center">
+            <div class="text-center">
+              <%= render Foundation::LinkComponent.new(text: "Default Link", href: "#") %>
+              <p class="text-xs text-slate-500 mt-1">Default</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::LinkComponent.new(text: "Primary Link", href: "#", variant: :primary) %>
+              <p class="text-xs text-slate-500 mt-1">Primary</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::LinkComponent.new(text: "Secondary Link", href: "#", variant: :secondary) %>
+              <p class="text-xs text-slate-500 mt-1">Secondary</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Icons -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Icons</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex flex-wrap gap-6 items-center">
+            <div class="text-center">
+              <%= render Foundation::IconComponent.new(name: "user", variant: :solid) %>
+              <p class="text-xs text-slate-500 mt-1">Solid</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::IconComponent.new(name: "user", variant: :outline) %>
+              <p class="text-xs text-slate-500 mt-1">Outline</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::IconComponent.new(name: "check-circle", variant: :solid, color: :success) %>
+              <p class="text-xs text-slate-500 mt-1">Success</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::IconComponent.new(name: "exclamation-circle", variant: :solid, color: :warning) %>
+              <p class="text-xs text-slate-500 mt-1">Warning</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::IconComponent.new(name: "x-circle", variant: :solid, color: :danger) %>
+              <p class="text-xs text-slate-500 mt-1">Danger</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Divider</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Foundation::DividerComponent.new %>
+        </div>
+      </div>
+
+      <!-- Tooltip -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Tooltip</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 space-y-6">
+          <div class="flex flex-wrap gap-6 items-center">
+            <div class="text-center">
+              <%= render Foundation::TooltipComponent.new(text: "Tooltip on top", position: :top) do %>
+                <%= render Foundation::ButtonComponent.new(text: "Top", variant: :outline, size: :small) %>
+              <% end %>
+              <p class="text-xs text-slate-500 mt-1">Top</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::TooltipComponent.new(text: "Tooltip on bottom", position: :bottom) do %>
+                <%= render Foundation::ButtonComponent.new(text: "Bottom", variant: :outline, size: :small) %>
+              <% end %>
+              <p class="text-xs text-slate-500 mt-1">Bottom</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::TooltipComponent.new(text: "Tooltip on left", position: :left) do %>
+                <%= render Foundation::ButtonComponent.new(text: "Left", variant: :outline, size: :small) %>
+              <% end %>
+              <p class="text-xs text-slate-500 mt-1">Left</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::TooltipComponent.new(text: "Tooltip on right", position: :right) do %>
+                <%= render Foundation::ButtonComponent.new(text: "Right", variant: :outline, size: :small) %>
+              <% end %>
+              <p class="text-xs text-slate-500 mt-1">Right</p>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4">
+            <p class="text-xs text-slate-600 mb-2">Sizes:</p>
+            <div class="flex flex-wrap gap-4 items-center">
+              <div class="text-center">
+                <%= render Foundation::TooltipComponent.new(text: "Small tooltip", size: :small) do %>
+                  <%= render Foundation::ButtonComponent.new(text: "Small", variant: :ghost, size: :small) %>
+                <% end %>
+                <p class="text-xs text-slate-500 mt-1">Small</p>
+              </div>
+              <div class="text-center">
+                <%= render Foundation::TooltipComponent.new(text: "Medium tooltip with more text", size: :medium) do %>
+                  <%= render Foundation::ButtonComponent.new(text: "Medium", variant: :ghost, size: :small) %>
+                <% end %>
+                <p class="text-xs text-slate-500 mt-1">Medium</p>
+              </div>
+              <div class="text-center">
+                <%= render Foundation::TooltipComponent.new(text: "Large tooltip with even more explanatory text", size: :large) do %>
+                  <%= render Foundation::ButtonComponent.new(text: "Large", variant: :ghost, size: :small) %>
+                <% end %>
+                <p class="text-xs text-slate-500 mt-1">Large</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form Components -->
+    <section id="form" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-indigo-500">Form</h2>
+
+      <!-- Text Input -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Text Input</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 space-y-4">
+          <%= render Form::Field::TextInputComponent.new(
+            name: "sample_text",
+            label: "Default Text Input",
+            placeholder: "Enter text..."
+          ) %>
+          <%= render Form::Field::TextInputComponent.new(
+            name: "sample_text_help",
+            label: "With Help Text",
+            hint: "This is helpful information",
+            placeholder: "Enter text..."
+          ) %>
+        </div>
+      </div>
+
+      <!-- Password Input -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Password Input</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::PasswordInputComponent.new(
+            name: "sample_password",
+            label: "Password",
+            placeholder: "Enter password..."
+          ) %>
+        </div>
+      </div>
+
+      <!-- Textarea -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Textarea</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::TextareaComponent.new(
+            name: "sample_textarea",
+            label: "Description",
+            placeholder: "Enter description...",
+            rows: 4
+          ) %>
+        </div>
+      </div>
+
+      <!-- Select -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Select</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::SelectComponent.new(
+            name: "sample_select",
+            label: "Select an option",
+            options: [["Option 1", "1"], ["Option 2", "2"], ["Option 3", "3"]],
+            prompt: "Choose..."
+          ) %>
+        </div>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Checkbox</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::CheckboxComponent.new(
+            name: "sample_checkbox",
+            label: "Accept terms and conditions"
+          ) %>
+        </div>
+      </div>
+
+      <!-- Switch -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Switch</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::SwitchComponent.new(
+            name: "sample_switch",
+            label: "Enable notifications"
+          ) %>
+        </div>
+      </div>
+
+      <!-- Radio Button -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Radio Button</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::RadioComponent.new(
+            name: "sample_radio",
+            label: "Option A",
+            value: "a"
+          ) %>
+        </div>
+      </div>
+
+      <!-- Radio Group -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Radio Group</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::RadioGroupComponent.new(
+            name: "sample_radio_group",
+            legend: "Select a plan",
+            options: [
+              { label: "Basic Plan - €10/month", value: "basic" },
+              { label: "Pro Plan - €25/month", value: "pro" },
+              { label: "Enterprise Plan - €50/month", value: "enterprise" }
+            ]
+          ) %>
+        </div>
+      </div>
+
+      <!-- Checkbox Group -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Checkbox Group</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::CheckboxGroupComponent.new(
+            name: "sample_checkbox_group",
+            legend: "Select features",
+            options: [
+              { label: "Email notifications", value: "email" },
+              { label: "SMS notifications", value: "sms" },
+              { label: "Push notifications", value: "push" }
+            ]
+          ) %>
+        </div>
+      </div>
+
+      <!-- Multi Select -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Multi Select</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::MultiSelectComponent.new(
+            name: "sample_multi_select",
+            label: "Select vendors",
+            options: [
+              ["Photographer", "photographer"],
+              ["Videographer", "videographer"],
+              ["Florist", "florist"],
+              ["Caterer", "caterer"],
+              ["DJ", "dj"]
+            ],
+            placeholder: "Choose vendors..."
+          ) %>
+        </div>
+      </div>
+
+      <!-- Date Picker -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Date Picker</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::DatePickerComponent.new(
+            name: "sample_date",
+            label: "Event date",
+            placeholder: "Select a date..."
+          ) %>
+        </div>
+      </div>
+
+      <!-- File Upload -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">File Upload</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Form::Field::FileUploadComponent.new(
+            name: "sample_file",
+            label: "Upload document",
+            hint: "PDF, DOC, or DOCX up to 10MB"
+          ) %>
+        </div>
+      </div>
+
+      <!-- Form Validation States -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Validation States</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 space-y-4">
+          <%= render Form::Field::TextInputComponent.new(
+            name: "sample_valid",
+            label: "Valid Input",
+            value: "john@example.com",
+            error: nil
+          ) %>
+          <%= render Form::Field::TextInputComponent.new(
+            name: "sample_error",
+            label: "Input with Error",
+            value: "invalid-email",
+            error: "Doit être une adresse e-mail valide"
+          ) %>
+          <%= render Form::Field::TextInputComponent.new(
+            name: "sample_disabled",
+            label: "Disabled Input",
+            value: "Cannot edit this",
+            disabled: true
+          ) %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout Components -->
+    <section id="layout" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-indigo-500">Layout</h2>
+
+      <!-- Card -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Card</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Layout::CardComponent.new do %>
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">Card Title</h3>
+            <p class="text-slate-600">This is a card component with some content inside.</p>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Empty State</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Layout::EmptyStateComponent.new(
+            title: "No items found",
+            description: "Get started by creating your first item."
+          ) %>
+        </div>
+      </div>
+
+      <!-- Page Header -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Page Header</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Layout::PageHeaderComponent.new(
+            title: "Page Title",
+            description: "This is a page description that provides context."
+          ) %>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Modal</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <button
+            type="button"
+            data-controller="components--modal"
+            data-action="click->components--modal#triggerOpen"
+            data-modal-target="demo-modal"
+            class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Open Modal
+          </button>
+        </div>
+      </div>
+
+      <%= render Layout::ModalComponent.new(
+        id: "demo-modal",
+        title: "Example Modal",
+        size: :medium
+      ) do |modal| %>
+        <% modal.with_body do %>
+          <p class="text-slate-700">This is a modal component with a title, body, and footer.</p>
+        <% end %>
+        <% modal.with_footer do %>
+          <%= render Foundation::ButtonComponent.new(
+            text: "Cancel",
+            variant: :outline,
+            data: { action: "click->components--modal#close" }
+          ) %>
+          <%= render Foundation::ButtonComponent.new(
+            text: "Confirm",
+            variant: :primary
+          ) %>
+        <% end %>
+      <% end %>
+
+      <!-- Tabs -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Tabs</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 space-y-4">
+          <div>
+            <p class="text-xs text-slate-600 mb-2">Underline Variant:</p>
+            <%= render Layout::TabsComponent.new(variant: :underline) do |tabs| %>
+              <% tabs.with_tab(id: "overview1", label: "Overview", selected: true) do %>
+                <p class="text-slate-700">Overview content goes here.</p>
+              <% end %>
+              <% tabs.with_tab(id: "details1", label: "Details") do %>
+                <p class="text-slate-700">Details content goes here.</p>
+              <% end %>
+              <% tabs.with_tab(id: "settings1", label: "Settings") do %>
+                <p class="text-slate-700">Settings content goes here.</p>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4">
+            <p class="text-xs text-slate-600 mb-2">Pills Variant:</p>
+            <%= render Layout::TabsComponent.new(variant: :pills) do |tabs| %>
+              <% tabs.with_tab(id: "tab1", label: "Tab 1", selected: true) do %>
+                <p class="text-slate-700">Tab 1 content.</p>
+              <% end %>
+              <% tabs.with_tab(id: "tab2", label: "Tab 2") do %>
+                <p class="text-slate-700">Tab 2 content.</p>
+              <% end %>
+              <% tabs.with_tab(id: "tab3", label: "Tab 3") do %>
+                <p class="text-slate-700">Tab 3 content.</p>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4">
+            <p class="text-xs text-slate-600 mb-2">Boxed Variant:</p>
+            <%= render Layout::TabsComponent.new(variant: :boxed) do |tabs| %>
+              <% tabs.with_tab(id: "first", label: "First", selected: true) do %>
+                <p class="text-slate-700">First tab content.</p>
+              <% end %>
+              <% tabs.with_tab(id: "second", label: "Second") do %>
+                <p class="text-slate-700">Second tab content.</p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Components -->
+    <section id="navigation" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-indigo-500">Navigation</h2>
+
+      <!-- Dropdown Menu -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Dropdown Menu</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Navigation::DropdownMenuComponent.new do |menu| %>
+            <% menu.with_trigger do %>
+              <%= render Foundation::ButtonComponent.new(text: "Options", variant: :outline) %>
+            <% end %>
+            <% menu.with_item_link(text: "Edit", href: "#", icon: :pencil_square) %>
+            <% menu.with_item_link(text: "Duplicate", href: "#", icon: :document_duplicate) %>
+            <% menu.with_item_divider %>
+            <% menu.with_item_link(text: "Delete", href: "#", icon: :trash, destructive: true) %>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Language Switcher -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Language Switcher</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <%= render Navigation::LanguageSwitcherComponent.new(current_locale: :fr) %>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Pagination</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <p class="text-sm text-slate-600 mb-2">Note: Pagination component requires Pagy object from controller</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback Components -->
+    <section id="feedback" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-indigo-500">Feedback</h2>
+
+      <!-- Alerts -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Alerts</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 space-y-4">
+          <%= render Feedback::AlertComponent.new(message: "This is an informational alert", type: :info) %>
+          <%= render Feedback::AlertComponent.new(message: "Operation completed successfully!", type: :success) %>
+          <%= render Feedback::AlertComponent.new(message: "Warning: Please review your settings", type: :warning) %>
+          <%= render Feedback::AlertComponent.new(message: "Error: Something went wrong", type: :error) %>
+        </div>
+      </div>
+
+      <!-- Spinner -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Spinner</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex gap-6 items-center">
+            <div class="text-center">
+              <%= render Foundation::SpinnerComponent.new(size: :small) %>
+              <p class="text-xs text-slate-500 mt-2">Small</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::SpinnerComponent.new(size: :medium) %>
+              <p class="text-xs text-slate-500 mt-2">Medium</p>
+            </div>
+            <div class="text-center">
+              <%= render Foundation::SpinnerComponent.new(size: :large) %>
+              <p class="text-xs text-slate-500 mt-2">Large</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toast -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Toast</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <p class="text-sm text-slate-600 mb-4">Toast notifications appear dynamically via Turbo Streams</p>
+          <div class="space-y-3">
+            <%= render Feedback::ToastComponent.new(message: "Success notification", type: :success) %>
+            <%= render Feedback::ToastComponent.new(message: "Info notification", type: :info) %>
+            <%= render Feedback::ToastComponent.new(message: "Warning notification", type: :warning) %>
+            <%= render Feedback::ToastComponent.new(message: "Error notification", type: :error) %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirmation Modal -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Confirmation Modal</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <button
+            type="button"
+            data-controller="components--modal"
+            data-action="click->components--modal#triggerOpen"
+            data-modal-target="confirmation-demo-modal"
+            class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+            Show Confirmation
+          </button>
+        </div>
+      </div>
+
+      <%= render Feedback::ConfirmationModalComponent.new(
+        id: "confirmation-demo-modal",
+        title: "Confirm Action",
+        message: "Are you sure you want to proceed with this action? This cannot be undone.",
+        confirm_text: "Confirm",
+        cancel_text: "Cancel"
+      ) %>
+    </section>
+
+    <!-- Display Components -->
+    <section id="display" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-indigo-500">Display</h2>
+
+      <!-- Badges -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Badges</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 space-y-4">
+          <div>
+            <p class="text-xs text-slate-600 mb-2">Solid Variant:</p>
+            <div class="flex flex-wrap gap-2">
+              <%= render Display::BadgeComponent.new(text: "Neutral", variant: :solid, color: :neutral) %>
+              <%= render Display::BadgeComponent.new(text: "Primary", variant: :solid, color: :primary) %>
+              <%= render Display::BadgeComponent.new(text: "Success", variant: :solid, color: :success) %>
+              <%= render Display::BadgeComponent.new(text: "Warning", variant: :solid, color: :warning) %>
+              <%= render Display::BadgeComponent.new(text: "Danger", variant: :solid, color: :danger) %>
+              <%= render Display::BadgeComponent.new(text: "Info", variant: :solid, color: :info) %>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4">
+            <p class="text-xs text-slate-600 mb-2">Subtle Variant:</p>
+            <div class="flex flex-wrap gap-2">
+              <%= render Display::BadgeComponent.new(text: "Neutral", variant: :subtle, color: :neutral) %>
+              <%= render Display::BadgeComponent.new(text: "Primary", variant: :subtle, color: :primary) %>
+              <%= render Display::BadgeComponent.new(text: "Success", variant: :subtle, color: :success) %>
+              <%= render Display::BadgeComponent.new(text: "Warning", variant: :subtle, color: :warning) %>
+              <%= render Display::BadgeComponent.new(text: "Danger", variant: :subtle, color: :danger) %>
+              <%= render Display::BadgeComponent.new(text: "Info", variant: :subtle, color: :info) %>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4">
+            <p class="text-xs text-slate-600 mb-2">Outline Variant:</p>
+            <div class="flex flex-wrap gap-2">
+              <%= render Display::BadgeComponent.new(text: "Neutral", variant: :outline, color: :neutral) %>
+              <%= render Display::BadgeComponent.new(text: "Primary", variant: :outline, color: :primary) %>
+              <%= render Display::BadgeComponent.new(text: "Success", variant: :outline, color: :success) %>
+              <%= render Display::BadgeComponent.new(text: "Warning", variant: :outline, color: :warning) %>
+              <%= render Display::BadgeComponent.new(text: "Danger", variant: :outline, color: :danger) %>
+              <%= render Display::BadgeComponent.new(text: "Info", variant: :outline, color: :info) %>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4">
+            <p class="text-xs text-slate-600 mb-2">Sizes:</p>
+            <div class="flex flex-wrap gap-2 items-center">
+              <%= render Display::BadgeComponent.new(text: "Small", size: :small) %>
+              <%= render Display::BadgeComponent.new(text: "Medium", size: :medium) %>
+              <%= render Display::BadgeComponent.new(text: "Large", size: :large) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat Card -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Stat Card</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <%= render Display::StatCardComponent.new(
+              label: "Total Revenue",
+              value: "€45,231",
+              icon_name: "currency-dollar",
+              value_color: :success
+            ) %>
+            <%= render Display::StatCardComponent.new(
+              label: "Active Events",
+              value: "23",
+              icon_name: "calendar",
+              value_color: :primary
+            ) %>
+            <%= render Display::StatCardComponent.new(
+              label: "Total Vendors",
+              value: "156",
+              icon_name: "users",
+              value_color: :info
+            ) %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeago -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Timeago</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-slate-600">Now:</span>
+            <%= render Display::TimeagoComponent.new(datetime: Time.current) %>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-slate-600">5 minutes ago:</span>
+            <%= render Display::TimeagoComponent.new(datetime: 5.minutes.ago) %>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-slate-600">2 hours ago:</span>
+            <%= render Display::TimeagoComponent.new(datetime: 2.hours.ago) %>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-slate-600">Yesterday:</span>
+            <%= render Display::TimeagoComponent.new(datetime: 1.day.ago) %>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-slate-600">Last week:</span>
+            <%= render Display::TimeagoComponent.new(datetime: 1.week.ago) %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Behavior Components -->
+    <section id="behavior" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-indigo-500">Behavior</h2>
+
+      <!-- Clipboard -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Clipboard</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 space-y-4">
+          <div>
+            <p class="text-xs text-slate-600 mb-2">Button Variant:</p>
+            <div class="flex flex-wrap gap-3">
+              <%= render Behavior::ClipboardComponent.new(
+                value: "https://example.com/api/key/12345",
+                text: "Copy API Key",
+                variant: :button,
+                button_variant: :primary
+              ) %>
+              <%= render Behavior::ClipboardComponent.new(
+                value: "user@example.com",
+                text: "Copy Email",
+                variant: :button,
+                button_variant: :outline
+              ) %>
+              <%= render Behavior::ClipboardComponent.new(
+                value: "Secret code: ABC123",
+                text: "Copy Code",
+                variant: :button,
+                button_variant: :ghost
+              ) %>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4">
+            <p class="text-xs text-slate-600 mb-2">Icon Variant:</p>
+            <%= render Behavior::ClipboardComponent.new(
+              value: "Copy this with icon only",
+              variant: :icon
+            ) %>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4">
+            <p class="text-xs text-slate-600 mb-2">Button Sizes:</p>
+            <div class="flex flex-wrap gap-3 items-center">
+              <%= render Behavior::ClipboardComponent.new(
+                value: "Small button",
+                text: "Small",
+                variant: :button,
+                button_size: :small
+              ) %>
+              <%= render Behavior::ClipboardComponent.new(
+                value: "Medium button",
+                text: "Medium",
+                variant: :button,
+                button_size: :medium
+              ) %>
+              <%= render Behavior::ClipboardComponent.new(
+                value: "Large button",
+                text: "Large",
+                variant: :button,
+                button_size: :large
+              ) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tooltip Integration -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-slate-800 mb-4">Tooltip Integration</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <p class="text-sm text-slate-600 mb-4">Tooltips provide contextual information on hover/focus:</p>
+          <div class="flex flex-wrap gap-4">
+            <%= render Foundation::TooltipComponent.new(text: "Edit this item", position: :top) do %>
+              <button class="p-2 text-slate-600 hover:text-indigo-600 rounded-md hover:bg-slate-100">
+                <%= render Foundation::IconComponent.new(name: "pencil-square") %>
+              </button>
+            <% end %>
+            <%= render Foundation::TooltipComponent.new(text: "Delete this item", position: :top) do %>
+              <button class="p-2 text-slate-600 hover:text-red-600 rounded-md hover:bg-slate-100">
+                <%= render Foundation::IconComponent.new(name: "trash") %>
+              </button>
+            <% end %>
+            <%= render Foundation::TooltipComponent.new(text: "Share this item", position: :top) do %>
+              <button class="p-2 text-slate-600 hover:text-indigo-600 rounded-md hover:bg-slate-100">
+                <%= render Foundation::IconComponent.new(name: "share") %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

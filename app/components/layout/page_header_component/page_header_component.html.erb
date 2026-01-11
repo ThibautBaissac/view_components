@@ -1,0 +1,54 @@
+<header <%= tag.attributes(merged_html_attributes) %>>
+  <% if show_action_container? %>
+    <div class="<%= action_container_classes %>">
+      <div>
+        <div class="<%= title_container_classes %>">
+          <h1 class="<%= title_classes %>" <% if description_id %>aria-describedby="<%= description_id %>"<% end %>>
+            <%= @title %>
+          </h1>
+          <% if badge? %>
+            <div role="status" aria-label="<%= badge_aria_label %>">
+              <%= badge %>
+            </div>
+          <% end %>
+        </div>
+        <% if show_description? %>
+          <p id="<%= description_id %>" class="<%= description_classes %>">
+            <%= @description %>
+          </p>
+        <% end %>
+      </div>
+      <div role="region" aria-label="<%= actions_aria_label %>">
+        <%= action %>
+      </div>
+    </div>
+  <% else %>
+    <div class="<%= title_container_classes %>">
+      <h1 class="<%= title_classes %>" <% if description_id %>aria-describedby="<%= description_id %>"<% end %>>
+        <%= @title %>
+      </h1>
+      <% if badge? %>
+        <div role="status" aria-label="<%= badge_aria_label %>">
+          <%= badge %>
+        </div>
+      <% end %>
+    </div>
+    <% if show_description? %>
+      <p id="<%= description_id %>" class="<%= description_classes %>">
+        <%= @description %>
+      </p>
+    <% end %>
+    <% if show_back_link? %>
+      <nav aria-label="<%= breadcrumb_aria_label %>" class="<%= back_link_container_classes %>">
+        <%= render Foundation::LinkComponent.new(
+          href: @back_url,
+          variant: :secondary,
+          size: :small,
+          aria: { label: back_link_aria_label }
+        ) do %>
+          <%= back_link_text %>
+        <% end %>
+      </nav>
+    <% end %>
+  <% end %>
+</header>

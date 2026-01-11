@@ -1,0 +1,12 @@
+fr:
+  components:
+    layout:
+      page_header:
+        # Navigation retour
+        back_link: "← Retour à la liste"
+        back_link_label: "Retourner à la page précédente"
+
+        # Labels ARIA pour l'accessibilité
+        breadcrumb: "Fil d'ariane"
+        badge_label: "Statut"
+        actions_label: "Actions de la page"

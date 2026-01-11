@@ -1,0 +1,37 @@
+<div class="space-y-4">
+  <p class="text-gray-600 mb-4">Full size modal for extensive content:</p>
+
+  <%= render Foundation::ButtonComponent.new(
+    text: "Open Full Modal",
+    variant: :primary,
+    data: Layout::ModalComponent.trigger_attributes(modal_id: modal_id)
+  ) %>
+
+  <%= render Layout::ModalComponent.new(
+    id: modal_id,
+    title: title,
+    size: size
+  ) do %>
+    <div class="prose max-w-none">
+      <p class="text-gray-600">This is the largest modal size, perfect for rich content or detailed views.</p>
+      <div class="grid grid-cols-2 gap-4 mt-4">
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <h4 class="font-medium text-gray-900">Section 1</h4>
+          <p class="text-gray-600 mt-2">Content for the first section goes here.</p>
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <h4 class="font-medium text-gray-900">Section 2</h4>
+          <p class="text-gray-600 mt-2">Content for the second section goes here.</p>
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <h4 class="font-medium text-gray-900">Section 3</h4>
+          <p class="text-gray-600 mt-2">Content for the third section goes here.</p>
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <h4 class="font-medium text-gray-900">Section 4</h4>
+          <p class="text-gray-600 mt-2">Content for the fourth section goes here.</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,33 @@
+<fieldset class="space-y-3">
+  <legend class="text-sm font-medium text-gray-700 mb-2">Select a subscription plan:</legend>
+
+  <%= render(Form::Field::RadioComponent.new(
+    name: "subscription_plan",
+    value: "free",
+    label: "Free Plan",
+    hint: "Basic features, limited to 1 project",
+    checked: true
+  )) %>
+
+  <%= render(Form::Field::RadioComponent.new(
+    name: "subscription_plan",
+    value: "pro",
+    label: "Pro Plan - $19/month",
+    hint: "All features, unlimited projects"
+  )) %>
+
+  <%= render(Form::Field::RadioComponent.new(
+    name: "subscription_plan",
+    value: "team",
+    label: "Team Plan - $49/month",
+    hint: "Everything in Pro, plus team collaboration"
+  )) %>
+
+  <%= render(Form::Field::RadioComponent.new(
+    name: "subscription_plan",
+    value: "legacy",
+    label: "Legacy Plan",
+    hint: "No longer available for new subscriptions",
+    disabled: true
+  )) %>
+</fieldset>

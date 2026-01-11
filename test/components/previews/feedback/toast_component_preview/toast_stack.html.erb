@@ -1,0 +1,26 @@
+<div class="relative h-96 bg-gray-100 rounded-lg p-4">
+  <p class="text-gray-500 text-sm mb-4">
+    This demonstrates how toasts can be positioned in a container.
+    In a real application, this container would be fixed to the viewport.
+  </p>
+
+  <!-- Toast stack container (typically fixed to viewport corner) -->
+  <div class="absolute top-4 right-4 space-y-3">
+    <%= render(Feedback::ToastComponent.new(
+      message: "First notification",
+      type: :info
+    )) do |toast|
+      toast.with_title { "New Message" }
+    end %>
+
+    <%= render(Feedback::ToastComponent.new(
+      message: "Your file has been uploaded.",
+      type: :success
+    )) %>
+
+    <%= render(Feedback::ToastComponent.new(
+      message: "Action required before proceeding.",
+      type: :warning
+    )) %>
+  </div>
+</div>

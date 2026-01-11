@@ -1,0 +1,28 @@
+<div class="space-y-6">
+  <div>
+    <%= render(Form::Field::SelectComponent.new(
+      name: "small_select",
+      label: "Small",
+      options: %w[Option1 Option2 Option3],
+      size: :small
+    )) %>
+  </div>
+
+  <div>
+    <%= render(Form::Field::SelectComponent.new(
+      name: "medium_select",
+      label: "Medium (Default)",
+      options: %w[Option1 Option2 Option3],
+      size: :medium
+    )) %>
+  </div>
+
+  <div>
+    <%= render(Form::Field::SelectComponent.new(
+      name: "large_select",
+      label: "Large",
+      options: %w[Option1 Option2 Option3],
+      size: :large
+    )) %>
+  </div>
+</div>

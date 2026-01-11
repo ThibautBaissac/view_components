@@ -1,0 +1,23 @@
+<div class="bg-slate-900 rounded-lg p-12">
+  <div class="space-y-8">
+    <div class="text-center">
+      <h3 class="text-lg font-medium text-white mb-4">Centered on Dark Background</h3>
+      <%= render(Foundation::SpinnerComponent.new(
+        color: :white,
+        size: :large,
+        label: "Loading...",
+        centered: true
+      )) %>
+    </div>
+
+    <div class="border-t border-slate-700 pt-8">
+      <h3 class="text-lg font-medium text-white mb-4">Different Sizes</h3>
+      <div class="flex items-center justify-around">
+        <%= render(Foundation::SpinnerComponent.new(color: :white, size: :small)) %>
+        <%= render(Foundation::SpinnerComponent.new(color: :white, size: :medium)) %>
+        <%= render(Foundation::SpinnerComponent.new(color: :white, size: :large)) %>
+        <%= render(Foundation::SpinnerComponent.new(color: :white, size: :xl)) %>
+      </div>
+    </div>
+  </div>
+</div>

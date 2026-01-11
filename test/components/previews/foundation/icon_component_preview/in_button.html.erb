@@ -1,0 +1,87 @@
+<div class="flex flex-col gap-4 p-4">
+  <h3 class="text-sm font-medium text-gray-700 mb-2">
+    Icons with Text in Buttons
+  </h3>
+
+  <div class="flex flex-wrap gap-3">
+    <button
+      type="button"
+      class="
+        inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white
+        rounded-lg hover:bg-blue-700 transition-colors
+      "
+    >
+      <%= render(Foundation::IconComponent.new(name: "plus", size: :small, color: :white)) %>
+      Add Item
+    </button>
+
+    <button
+      type="button"
+      class="
+        inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white
+        rounded-lg hover:bg-green-700 transition-colors
+      "
+    >
+      <%= render(Foundation::IconComponent.new(name: "check", size: :small, color: :white)) %>
+      Confirm
+    </button>
+
+    <button
+      type="button"
+      class="
+        inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white
+        rounded-lg hover:bg-red-700 transition-colors
+      "
+    >
+      <%= render(Foundation::IconComponent.new(name: "trash", size: :small, color: :white)) %>
+      Delete
+    </button>
+
+    <button
+      type="button"
+      class="
+        inline-flex items-center gap-2 px-4 py-2 border border-gray-300
+        text-gray-700 rounded-lg hover:bg-gray-50 transition-colors
+      "
+    >
+      <%= render(Foundation::IconComponent.new(name: "pencil-square", size: :small)) %>
+      Edit
+    </button>
+  </div>
+
+  <h3 class="text-sm font-medium text-gray-700 mt-4 mb-2">Icon-only Buttons</h3>
+
+  <div class="flex flex-wrap gap-2">
+    <button
+      type="button"
+      class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+      aria-label="Search"
+    >
+      <%= render(Foundation::IconComponent.new(name: "magnifying-glass", label: "Search")) %>
+    </button>
+
+    <button
+      type="button"
+      class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+      aria-label="Notifications"
+    >
+      <%= render(Foundation::IconComponent.new(name: "bell", label: "Notifications")) %>
+    </button>
+
+    <button
+      type="button"
+      class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+      aria-label="Settings"
+    >
+      <%= render(Foundation::IconComponent.new(name: "cog-6-tooth", label: "Settings")) %>
+    </button>
+
+    <button
+      type="button"
+      class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+      aria-label="Menu"
+    >
+      <%= render(Foundation::IconComponent.new(name: "bars-3", label: "Open menu")) %>
+    </button>
+  </div>
+</div>

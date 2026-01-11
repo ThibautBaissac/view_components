@@ -1,0 +1,31 @@
+<div class="space-y-8">
+  <div>
+    <h3 class="text-sm font-medium text-gray-900 mb-3">Small Size</h3>
+    <%= render(Form::Field::RadioGroupComponent.new(
+      name: "size_small",
+      label: "Priority",
+      options: [ "Low", "Medium", "High" ],
+      size: :small
+    )) %>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-gray-900 mb-3">Medium Size (Default)</h3>
+    <%= render(Form::Field::RadioGroupComponent.new(
+      name: "size_medium",
+      label: "Priority",
+      options: [ "Low", "Medium", "High" ],
+      size: :medium
+    )) %>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-gray-900 mb-3">Large Size</h3>
+    <%= render(Form::Field::RadioGroupComponent.new(
+      name: "size_large",
+      label: "Priority",
+      options: [ "Low", "Medium", "High" ],
+      size: :large
+    )) %>
+  </div>
+</div>

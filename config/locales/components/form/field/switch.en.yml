@@ -1,0 +1,8 @@
+en:
+  components:
+    form:
+      field:
+        switch:
+          on: "On"
+          off: "Off"
+          toggle: "Toggle switch"

@@ -1,0 +1,25 @@
+<div class="<%= wrapper_classes %>">
+  <% if has_label? %>
+    <label for="<%= @id %>" class="<%= label_classes %>">
+      <%= @label %>
+
+      <% if @required %>
+        <span class="text-red-500 ml-0.5" aria-hidden="true">
+          <%= required_indicator %>
+        </span>
+      <% end %>
+    </label>
+  <% end %>
+
+  <%= tag.textarea(@value, **merged_textarea_attributes) %>
+
+  <% if has_hint? && !has_error? %>
+    <p id="<%= hint_id %>" class="<%= hint_classes %>"><%= @hint %></p>
+  <% end %>
+
+  <% if has_error? %>
+    <p id="<%= error_id %>" class="<%= error_classes %>" role="alert">
+      <%= @error %>
+    </p>
+  <% end %>
+</div>

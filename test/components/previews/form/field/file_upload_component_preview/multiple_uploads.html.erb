@@ -1,0 +1,67 @@
+<div class="max-w-4xl mx-auto p-6">
+  <div class="bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-2xl font-bold mb-6">Job Application</h2>
+
+    <form class="space-y-6">
+      <%= render Form::Field::TextInputComponent.new(
+        name: "application[position]",
+        label: "Position Applied For",
+        required: true,
+        placeholder: "e.g., Senior Software Engineer"
+      ) %>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <%= render Form::Field::FileUploadComponent.new(
+          name: "application[resume]",
+          label: "Resume / CV",
+          required: true,
+          accept: ".pdf,.doc,.docx",
+          hint: "PDF or Word document"
+        ) %>
+
+        <%= render Form::Field::FileUploadComponent.new(
+          name: "application[cover_letter]",
+          label: "Cover Letter",
+          accept: ".pdf,.doc,.docx",
+          hint: "Optional cover letter"
+        ) %>
+      </div>
+
+      <%= render Form::Field::FileUploadComponent.new(
+        name: "application[portfolio][]",
+        label: "Portfolio / Work Samples",
+        multiple: true,
+        max_files: 5,
+        accept: ".pdf,.jpg,.jpeg,.png,.zip",
+        hint: "Upload up to 5 files showcasing your work"
+      ) %>
+
+      <%= render Form::Field::FileUploadComponent.new(
+        name: "application[certificates][]",
+        label: "Certificates & Credentials",
+        multiple: true,
+        max_files: 10,
+        accept: "image/*,.pdf",
+        hint: "Upload certificates, diplomas, or other credentials"
+      ) %>
+
+      <%= render Form::Field::TextareaComponent.new(
+        name: "application[message]",
+        label: "Additional Information",
+        placeholder: "Any additional information you'd like to share...",
+        hint: "Optional additional comments"
+      ) %>
+
+      <div class="flex justify-end gap-3 pt-4">
+        <%= render Foundation::ButtonComponent.new(
+          text: "Save Draft",
+          variant: :secondary
+        ) %>
+        <%= render Foundation::ButtonComponent.new(
+          text: "Submit Application",
+          variant: :primary
+        ) %>
+      </div>
+    </form>
+  </div>
+</div>

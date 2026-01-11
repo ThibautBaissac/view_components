@@ -1,0 +1,41 @@
+<div class="flex items-center justify-center p-12">
+  <div class="flex items-center gap-1 p-2 bg-white border border-gray-200 rounded-lg shadow-sm">
+    <%= render(Foundation::TooltipComponent.new(text: "Bold (Ctrl+B)", size: :small)) do %>
+      <%= tag.button(type: "button", class: "p-2 rounded hover:bg-gray-100", "aria-label": "Bold") do %>
+        <%= render(Foundation::IconComponent.new(name: "bold", size: :small, color: :current)) %>
+      <% end %>
+    <% end %>
+
+    <%= render(Foundation::TooltipComponent.new(text: "Italic (Ctrl+I)", size: :small)) do %>
+      <%= tag.button(type: "button", class: "p-2 rounded hover:bg-gray-100", "aria-label": "Italic") do %>
+        <%= render(Foundation::IconComponent.new(name: "italic", size: :small, color: :current)) %>
+      <% end %>
+    <% end %>
+
+    <%= render(Foundation::TooltipComponent.new(text: "Underline (Ctrl+U)", size: :small)) do %>
+      <%= tag.button(type: "button", class: "p-2 rounded hover:bg-gray-100", "aria-label": "Underline") do %>
+        <%= render(Foundation::IconComponent.new(name: "underline", size: :small, color: :current)) %>
+      <% end %>
+    <% end %>
+
+    <%= render(Foundation::DividerComponent.new(orientation: :vertical, spacing: :small, color: :muted)) %>
+
+    <%= render(Foundation::TooltipComponent.new(text: "Align left", size: :small)) do %>
+      <%= tag.button(type: "button", class: "p-2 rounded hover:bg-gray-100", "aria-label": "Align left") do %>
+        <%= render(Foundation::IconComponent.new(name: "bars-3-bottom-left", size: :small, color: :current)) %>
+      <% end %>
+    <% end %>
+
+    <%= render(Foundation::TooltipComponent.new(text: "Align center", size: :small)) do %>
+      <%= tag.button(type: "button", class: "p-2 rounded hover:bg-gray-100", "aria-label": "Align center") do %>
+        <%= render(Foundation::IconComponent.new(name: "bars-3", size: :small, color: :current)) %>
+      <% end %>
+    <% end %>
+
+    <%= render(Foundation::TooltipComponent.new(text: "Align right", size: :small)) do %>
+      <%= tag.button(type: "button", class: "p-2 rounded hover:bg-gray-100", "aria-label": "Align right") do %>
+        <%= render(Foundation::IconComponent.new(name: "bars-3-bottom-right", size: :small, color: :current)) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

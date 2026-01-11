@@ -1,0 +1,9 @@
+<div role="status" <%= tag.attributes(merged_html_attributes) %>>
+  <div class="<%= spinner_classes %>" aria-hidden="true"></div>
+
+  <% if has_label? %>
+    <span class="<%= label_classes %>"><%= @label %></span>
+  <% end %>
+
+  <span class="sr-only"><%= @aria_label %></span>
+</div>

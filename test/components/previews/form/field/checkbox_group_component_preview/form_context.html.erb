@@ -1,0 +1,65 @@
+<div class="max-w-2xl mx-auto p-6 bg-white rounded-lg border border-gray-200">
+  <h2 class="text-2xl font-bold text-gray-900 mb-6">User Profile Settings</h2>
+
+  <form class="space-y-8">
+    <%= render Form::Field::CheckboxGroupComponent.new(
+      name: "notifications[]",
+      label: "Notification Preferences",
+      options: [
+        ["Email notifications", "email"],
+        ["SMS notifications", "sms"],
+        ["Push notifications", "push"],
+        ["Weekly digest", "digest"]
+      ],
+      value: ["email", "push"],
+      hint: "Choose how you'd like to receive updates from us."
+    ) %>
+
+    <%= render Form::Field::CheckboxGroupComponent.new(
+      name: "interests[]",
+      label: "Areas of Interest",
+      options: [
+        ["Web Development", "web_dev"],
+        ["Mobile Development", "mobile_dev"],
+        ["Data Science", "data_science"],
+        ["Machine Learning", "ml"],
+        ["DevOps", "devops"],
+        ["UI/UX Design", "design"]
+      ],
+      value: ["web_dev", "devops"],
+      hint: "Select topics you'd like to see in your feed.",
+      layout: :stacked
+    ) %>
+
+    <%= render Form::Field::CheckboxGroupComponent.new(
+      name: "availability[]",
+      label: "Available Days",
+      options: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      value: ["Monday", "Wednesday", "Friday"],
+      layout: :inline,
+      hint: "Select the days you're available for meetings."
+    ) %>
+
+    <%= render Form::Field::CheckboxGroupComponent.new(
+      name: "agreements[]",
+      label: "Terms and Conditions",
+      options: [
+        ["I accept the Terms of Service", "tos"],
+        ["I accept the Privacy Policy", "privacy"],
+        ["I agree to receive marketing communications", "marketing"]
+      ],
+      value: ["tos", "privacy"],
+      required: true,
+      hint: "First two options are required to continue."
+    ) %>
+
+    <div class="pt-4 flex gap-3">
+      <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+        Save Settings
+      </button>
+      <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

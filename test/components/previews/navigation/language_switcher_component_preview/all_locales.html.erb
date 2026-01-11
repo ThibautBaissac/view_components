@@ -1,0 +1,30 @@
+<div class="p-8 space-y-8">
+  <div>
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">English Locale (EN)</h3>
+    <div class="inline-block">
+      <% I18n.with_locale(:en) do %>
+        <%= render(Navigation::LanguageSwitcherComponent.new) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">French Locale (FR)</h3>
+    <div class="inline-block">
+      <% I18n.with_locale(:fr) do %>
+        <%= render(Navigation::LanguageSwitcherComponent.new) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+    <h4 class="text-sm font-semibold text-blue-900 mb-2">Available Locales</h4>
+    <p class="text-sm text-blue-700">
+      The component automatically displays the current locale with a checkmark (✓) and allows switching between:
+    </p>
+    <ul class="mt-2 text-sm text-blue-700 list-disc list-inside">
+      <li>🇬🇧 English (EN)</li>
+      <li>🇫🇷 Français (FR)</li>
+    </ul>
+  </div>
+</div>

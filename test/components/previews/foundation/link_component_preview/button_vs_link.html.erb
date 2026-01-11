@@ -1,0 +1,39 @@
+<div class="space-y-6 p-4">
+  <div>
+    <h3 class="text-sm font-medium text-gray-500 mb-2">
+      Button (renders &lt;button&gt;)
+    </h3>
+
+    <div class="flex flex-wrap gap-4">
+      <%= render Foundation::ButtonComponent.new(text: "Primary Button", variant: :primary) %>
+      <%= render Foundation::ButtonComponent.new(text: "Secondary Button", variant: :secondary) %>
+      <%= render Foundation::ButtonComponent.new(text: "Outline Button", variant: :outline) %>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="text-sm font-medium text-gray-500 mb-2">
+      Link (renders &lt;a&gt;)
+    </h3>
+
+    <div class="flex flex-wrap gap-4">
+      <%= render Foundation::LinkComponent.new(href: "#", text: "Primary Link", variant: :primary) %>
+      <%= render Foundation::LinkComponent.new(href: "#", text: "Secondary Link", variant: :secondary) %>
+      <%= render Foundation::LinkComponent.new(href: "#", text: "Outline Link", variant: :outline) %>
+    </div>
+  </div>
+
+  <div class="text-sm text-gray-600 mt-4 p-4 bg-gray-50 rounded-lg">
+    <p class="font-medium mb-2">Key Differences:</p>
+
+    <ul class="list-disc list-inside space-y-1">
+      <li>
+        <strong>Button:</strong> Use for actions (submit, toggle, open modal)
+      </li>
+
+      <li>
+        <strong>Link:</strong> Use for navigation (go to another page/URL)
+      </li>
+    </ul>
+  </div>
+</div>

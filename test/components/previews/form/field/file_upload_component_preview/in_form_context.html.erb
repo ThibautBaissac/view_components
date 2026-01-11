@@ -1,0 +1,56 @@
+<div class="max-w-2xl mx-auto p-6">
+  <div class="bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-2xl font-bold mb-6">Profile Setup</h2>
+
+    <form class="space-y-6">
+      <%= render Form::Field::TextInputComponent.new(
+        name: "user[name]",
+        label: "Full Name",
+        required: true,
+        placeholder: "Enter your full name"
+      ) %>
+
+      <%= render Form::Field::TextInputComponent.new(
+        name: "user[email]",
+        label: "Email Address",
+        type: :email,
+        required: true,
+        placeholder: "you@example.com"
+      ) %>
+
+      <%= render Form::Field::FileUploadComponent.new(
+        name: "user[avatar]",
+        label: "Profile Photo",
+        accept: "image/*",
+        max_size: 5 * 1024 * 1024,
+        hint: "Upload a profile photo (JPG, PNG or GIF, max 5 MB)"
+      ) %>
+
+      <%= render Form::Field::FileUploadComponent.new(
+        name: "user[resume]",
+        label: "Resume / CV",
+        required: true,
+        accept: ".pdf,.doc,.docx",
+        hint: "Upload your resume in PDF or Word format"
+      ) %>
+
+      <%= render Form::Field::TextareaComponent.new(
+        name: "user[bio]",
+        label: "Bio",
+        placeholder: "Tell us about yourself...",
+        hint: "A brief description of your background and experience"
+      ) %>
+
+      <div class="flex justify-end gap-3 pt-4">
+        <%= render Foundation::ButtonComponent.new(
+          text: "Cancel",
+          variant: :secondary
+        ) %>
+        <%= render Foundation::ButtonComponent.new(
+          text: "Save Profile",
+          variant: :primary
+        ) %>
+      </div>
+    </form>
+  </div>
+</div>

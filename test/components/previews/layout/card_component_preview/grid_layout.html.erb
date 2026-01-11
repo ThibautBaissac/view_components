@@ -1,0 +1,8 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+  <% 3.times do |i| %>
+    <%= render(Layout::CardComponent.new) do |card| %>
+      <% card.with_header(title: "Event #{i + 1}") %>
+      <p class="text-slate-600">Event details and information for event number <%= i + 1 %>.</p>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,101 @@
+<div class="p-8 space-y-16">
+  <div class="text-center mb-8">
+    <h2 class="text-xl font-bold text-gray-900 mb-2">Dropdown Placements</h2>
+
+    <p class="text-gray-600">
+      Click each dropdown to see how they position relative to the trigger
+    </p>
+  </div>
+
+  <%# Bottom placements %>
+  <div class="flex justify-center gap-8">
+    <div>
+      <p class="text-sm text-gray-600 mb-2 text-center">
+        Bottom Start (default)
+      </p>
+
+      <%= render Navigation::DropdownMenuComponent.new(placement: :bottom_start) do |menu|
+        menu.with_trigger do
+          tag.button(class: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+            safe_join([
+              "Bottom Start",
+              tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+                tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M19 9l-7 7-7-7")
+              }
+            ])
+          end
+        end
+
+        menu.with_item_link(text: "Option 1", href: "#")
+        menu.with_item_link(text: "Option 2", href: "#")
+        menu.with_item_link(text: "Option 3", href: "#")
+      end %>
+    </div>
+
+    <div>
+      <p class="text-sm text-gray-600 mb-2 text-center">Bottom End</p>
+
+      <%= render Navigation::DropdownMenuComponent.new(placement: :bottom_end) do |menu|
+        menu.with_trigger do
+          tag.button(class: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+            safe_join([
+              "Bottom End",
+              tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+                tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M19 9l-7 7-7-7")
+              }
+            ])
+          end
+        end
+
+        menu.with_item_link(text: "Option 1", href: "#")
+        menu.with_item_link(text: "Option 2", href: "#")
+        menu.with_item_link(text: "Option 3", href: "#")
+      end %>
+    </div>
+  </div>
+
+  <%# Top placements - with extra spacing to see them properly %>
+  <div class="flex justify-center gap-8 pt-32">
+    <div>
+      <p class="text-sm text-gray-600 mb-2 text-center">Top Start</p>
+
+      <%= render Navigation::DropdownMenuComponent.new(placement: :top_start) do |menu|
+        menu.with_trigger do
+          tag.button(class: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+            safe_join([
+              "Top Start",
+              tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+                tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M5 15l7-7 7 7")
+              }
+            ])
+          end
+        end
+
+        menu.with_item_link(text: "Option 1", href: "#")
+        menu.with_item_link(text: "Option 2", href: "#")
+        menu.with_item_link(text: "Option 3", href: "#")
+      end %>
+    </div>
+
+    <div>
+      <p class="text-sm text-gray-600 mb-2 text-center">Top End</p>
+
+      <%= render Navigation::DropdownMenuComponent.new(placement: :top_end) do |menu|
+        menu.with_trigger do
+          tag.button(class: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50") do
+            safe_join([
+              "Top End",
+              tag.svg(class: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24") {
+                tag.path(stroke_linecap: "round", stroke_linejoin: "round", stroke_width: "2", d: "M5 15l7-7 7 7")
+              }
+            ])
+          end
+        end
+
+        menu.with_item_link(text: "Option 1", href: "#")
+        menu.with_item_link(text: "Option 2", href: "#")
+        menu.with_item_link(text: "Option 3", href: "#")
+      end %>
+    </div>
+  </div>
+</div>

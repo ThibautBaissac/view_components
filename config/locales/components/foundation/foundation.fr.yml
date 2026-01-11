@@ -1,0 +1,7 @@
+fr:
+  components:
+    foundation:
+      spinner:
+        aria_label: "Chargement en cours..."
+      button:
+        loading: "Chargement en cours..."

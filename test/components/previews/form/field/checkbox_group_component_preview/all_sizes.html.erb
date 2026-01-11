@@ -1,0 +1,31 @@
+<div class="space-y-6">
+  <div>
+    <span class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2 block">Small</span>
+    <%= render Form::Field::CheckboxGroupComponent.new(
+      name: "small[]",
+      label: "Small Size Options",
+      options: ["Option 1", "Option 2", "Option 3"],
+      size: :small
+    ) %>
+  </div>
+
+  <div>
+    <span class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2 block">Medium (Default)</span>
+    <%= render Form::Field::CheckboxGroupComponent.new(
+      name: "medium[]",
+      label: "Medium Size Options",
+      options: ["Option 1", "Option 2", "Option 3"],
+      size: :medium
+    ) %>
+  </div>
+
+  <div>
+    <span class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2 block">Large</span>
+    <%= render Form::Field::CheckboxGroupComponent.new(
+      name: "large[]",
+      label: "Large Size Options",
+      options: ["Option 1", "Option 2", "Option 3"],
+      size: :large
+    ) %>
+  </div>
+</div>

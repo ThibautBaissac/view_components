@@ -1,0 +1,29 @@
+<div class="space-y-4 p-6">
+  <div class="border border-slate-200 rounded-lg p-4">
+    <h3 class="text-sm font-medium text-slate-700 mb-3">Inline with text:</h3>
+    <div class="flex items-center">
+      <%= render(Foundation::SpinnerComponent.new(size: :small, inline: true)) %>
+      <span class="ml-2">Enregistrement en cours...</span>
+    </div>
+  </div>
+
+  <div class="border border-slate-200 rounded-lg p-4">
+    <h3 class="text-sm font-medium text-slate-700 mb-3">In a button (loading state):</h3>
+    <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg flex items-center" disabled>
+      <%= render(Foundation::SpinnerComponent.new(size: :small, color: :white, inline: true)) %>
+      <span class="ml-2">Saving...</span>
+    </button>
+  </div>
+
+  <div class="border border-slate-200 rounded-lg p-4">
+    <h3 class="text-sm font-medium text-slate-700 mb-3">Multiple inline spinners:</h3>
+    <div class="flex items-center gap-4">
+      <%= render(Foundation::SpinnerComponent.new(size: :xs, inline: true)) %>
+      <span>Extra Small</span>
+      <%= render(Foundation::SpinnerComponent.new(size: :small, inline: true)) %>
+      <span>Small</span>
+      <%= render(Foundation::SpinnerComponent.new(size: :medium, inline: true)) %>
+      <span>Medium</span>
+    </div>
+  </div>
+</div>

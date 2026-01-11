@@ -1,0 +1,150 @@
+<div class="<%= wrapper_classes %>">
+  <% if has_label? %>
+    <label for="<%= @id %>" id="<%= @id %>-label" class="<%= label_classes %>">
+      <%= @label %>
+
+      <% if @required %>
+        <span class="text-red-500 ml-0.5" aria-hidden="true">
+          <%= required_indicator %>
+        </span>
+      <% end %>
+    </label>
+  <% end %>
+
+  <div
+    data-controller="components--multi-select"
+    data-components--multi-select-selected-value="<%= @value.to_json %>"
+    data-components--multi-select-placeholder-value="<%= @placeholder %>"
+    data-name="<%= @name %>"
+    <%= tag.attributes(**field_attributes) %>
+    class="relative"
+  >
+    <!-- Dropdown trigger - using div instead of button to allow nested buttons for tag removal -->
+    <div
+      data-components--multi-select-target="trigger"
+      data-action="click->components--multi-select#toggleDropdown keydown->components--multi-select#handleTriggerKeydown"
+      class="<%= trigger_button_classes %>"
+      role="combobox"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      tabindex="<%= @disabled ? '-1' : '0' %>"
+      <% if @disabled %>aria-disabled="true"<% end %>
+    >
+      <div class="flex-1 flex flex-wrap items-center gap-1.5 min-h-[1.5rem]">
+        <!-- Tags container - always present for Stimulus to append to -->
+        <div data-components--multi-select-target="tags" class="flex flex-wrap gap-1.5">
+          <% selected_options.each do |label, value| %>
+            <span data-components--multi-select-target="tag" data-value="<%= value %>" class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium text-blue-700 bg-blue-50 rounded border border-blue-200">
+              <span><%= label %></span>
+              <button
+                type="button"
+                data-action="click->components--multi-select#removeTag:stop"
+                class="flex items-center justify-center w-3.5 h-3.5 rounded-full hover:bg-blue-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                aria-label="<%= t_component('remove_aria_label', label: label, default: "Remove %{label}") %>"
+              >
+                <%= render(Foundation::IconComponent.new(
+                  name: "x-mark",
+                  variant: :solid,
+                  size: :xs
+                )) %>
+              </button>
+            </span>
+          <% end %>
+        </div>
+        <!-- Placeholder text when nothing selected -->
+        <span data-components--multi-select-target="placeholder" class="text-gray-500 text-sm <%= 'hidden' if selected_options.any? %>"><%= @placeholder %></span>
+      </div>
+
+      <!-- Dropdown arrow icon -->
+      <div class="flex-shrink-0 ml-2">
+        <%= render(Foundation::IconComponent.new(
+          name: "chevron-down",
+          variant: :solid,
+          size: :medium,
+          color: @disabled ? :muted : :secondary
+        )) %>
+      </div>
+    </div>
+
+    <!-- Dropdown panel -->
+    <div data-components--multi-select-target="dropdown" class="<%= dropdown_classes %>" role="listbox" aria-multiselectable="true" aria-labelledby="<%= @id %>-label">
+      <!-- Search input inside dropdown -->
+      <div class="sticky top-0 z-10 bg-white border-b border-gray-200 p-2">
+        <input
+          type="text"
+          data-components--multi-select-target="input"
+          data-action="input->components--multi-select#filterOptions keydown->components--multi-select#handleKeydown"
+          class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="<%= t_component('search_placeholder', default: 'Search options...') %>"
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Options list -->
+      <div class="max-h-60 overflow-y-auto">
+        <% if grouped_options? %>
+          <% normalized_options.each do |group_label, group_options| %>
+            <div class="px-3 py-2 text-xs font-semibold text-gray-600 uppercase bg-gray-50">
+              <%= group_label %>
+            </div>
+            <% group_options.each_with_index do |(label, value), index| %>
+              <div
+                id="<%= @id %>-option-<%= index %>"
+                data-components--multi-select-target="option"
+                data-value="<%= value %>"
+                data-label="<%= label %>"
+                data-action="click->components--multi-select#selectOption"
+                class="<%= option_classes %>"
+                role="option"
+                aria-selected="<%= selected?(value) %>"
+              >
+                <span class="flex-1"><%= label %></span>
+                <span data-checkbox class="flex-shrink-0">
+                  <%= checkbox_icon(selected?(value)) %>
+                </span>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% normalized_options.each_with_index do |(label, value), index| %>
+            <div
+              id="<%= @id %>-option-<%= index %>"
+              data-components--multi-select-target="option"
+              data-value="<%= value %>"
+              data-label="<%= label %>"
+              data-action="click->components--multi-select#selectOption"
+              class="<%= option_classes %>"
+              role="option"
+              aria-selected="<%= selected?(value) %>"
+            >
+              <span class="flex-1"><%= label %></span>
+              <span data-checkbox class="flex-shrink-0">
+                <%= checkbox_icon(selected?(value)) %>
+              </span>
+            </div>
+          <% end %>
+        <% end %>
+
+        <!-- No results message -->
+        <div data-no-results class="hidden px-3 py-4 text-sm text-center text-gray-500" role="status" aria-live="polite">
+          <%= t_component('no_results', default: 'No options found') %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden inputs for form submission (added dynamically by Stimulus) -->
+    <% @value.each do |val| %>
+      <input type="hidden" name="<%= @name %>" value="<%= val %>" data-components--multi-select-target="hidden">
+    <% end %>
+
+    <% if has_hint? && !has_error? %>
+      <p id="<%= hint_id %>" class="<%= hint_classes %>"><%= @hint %></p>
+    <% end %>
+
+    <% if has_error? %>
+      <p id="<%= error_id %>" class="<%= error_classes %>" role="alert" data-components--multi-select-target="error">
+        <%= @error %>
+      </p>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="space-y-4">
+  <div>
+    <span class="text-xs font-medium text-slate-500 uppercase tracking-wide">Small</span>
+    <%= render Form::Field::CheckboxComponent.new(
+      name: "small_option",
+      label: "Small checkbox option",
+      size: :small
+    ) %>
+  </div>
+
+  <div>
+    <span class="text-xs font-medium text-slate-500 uppercase tracking-wide">Medium (Default)</span>
+    <%= render Form::Field::CheckboxComponent.new(
+      name: "medium_option",
+      label: "Medium checkbox option",
+      size: :medium
+    ) %>
+  </div>
+
+  <div>
+    <span class="text-xs font-medium text-slate-500 uppercase tracking-wide">Large</span>
+    <%= render Form::Field::CheckboxComponent.new(
+      name: "large_option",
+      label: "Large checkbox option",
+      size: :large
+    ) %>
+  </div>
+</div>

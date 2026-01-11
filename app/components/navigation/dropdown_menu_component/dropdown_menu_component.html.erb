@@ -1,0 +1,52 @@
+<div <%= tag.attributes(wrapper_html_attributes) %>>
+  <%# Trigger button with proper ARIA attributes %>
+  <div
+    id="<%= trigger_id %>"
+    data-components--dropdown-target="trigger"
+    data-action="click->components--dropdown#toggle"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    aria-controls="<%= menu_id %>"
+  >
+    <% if trigger? %>
+      <%= trigger %>
+    <% else %>
+      <button
+        type="button"
+        class="
+          inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold
+          text-slate-700 bg-white border-2 border-slate-300 rounded-lg shadow-sm
+          hover:bg-slate-50 hover:border-slate-400 focus:outline-none focus:ring-2
+          focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200
+        "
+        aria-label="<%= default_trigger_label %>"
+      >
+        <span><%= default_trigger_text %></span>
+
+        <%= render(Foundation::IconComponent.new(name: "chevron-down", size: :small)) %>
+      </button>
+    <% end %>
+  </div>
+
+  <%# Dropdown menu %>
+  <div
+    id="<%= menu_id %>"
+    class="<%= menu_classes %>"
+    data-components--dropdown-target="menu"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="<%= trigger_id %>"
+    tabindex="-1"
+  >
+    <div class="py-1" role="none">
+      <% items.each do |item| %>
+        <%= item %>
+      <% end %>
+    </div>
+  </div>
+
+  <%# Screen reader announcements for state changes %>
+  <div role="status" aria-live="polite" aria-atomic="true" class="sr-only">
+    <span data-components--dropdown-target="announcement"></span>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<%# Language Switcher using DropdownMenuComponent %>
+<%= render Navigation::DropdownMenuComponent.new(placement: :bottom_end, width: :small, close_on_select: true, **@html_options) do |menu| %>
+  <%# Custom trigger showing current locale %>
+  <% menu.with_trigger do %>
+    <button
+      type="button"
+      class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-lg shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors"
+      aria-label="<%= t_component('aria_label', default: 'Select language') %>"
+    >
+      <span class="flex-shrink-0 w-4 h-4"><%= render current_locale_data[:flag] %></span>
+      <span><%= current_locale_data[:name] %></span>
+      <%= render Foundation::IconComponent.new(name: "chevron-down", size: :small) %>
+    </button>
+  <% end %>
+
+  <%# Menu items for each locale %>
+  <% available_locales.each do |locale_data| %>
+    <%
+      item_content = capture do
+        concat content_tag(:span, render(locale_data[:flag]), class: "flex-shrink-0 w-4 h-4")
+        concat tag.span(locale_data[:name], class: "flex-1 #{locale_data[:current] ? 'font-semibold' : ''}")
+        if locale_data[:current]
+          concat tag.span("✓", class: "text-slate-400 text-sm ml-auto", aria: { hidden: "true" })
+        end
+      end
+    %>
+
+    <% menu.with_item_link(
+      text: item_content,
+      href: locale_url(locale_data[:code]),
+      class: (locale_data[:current] ? "bg-slate-50" : "")
+    ) %>
+  <% end %>
+<% end %>

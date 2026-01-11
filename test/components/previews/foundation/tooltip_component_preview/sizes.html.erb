@@ -1,0 +1,16 @@
+<div class="flex flex-wrap items-center justify-center gap-12 p-12">
+  <%# Small size %>
+  <%= render(Foundation::TooltipComponent.new(text: "Small tooltip", size: :small)) do %>
+    <%= tag.button("Small", type: "button", class: "px-3 py-1.5 text-sm bg-gray-600 text-white rounded-md hover:bg-gray-700") %>
+  <% end %>
+
+  <%# Medium size (default) %>
+  <%= render(Foundation::TooltipComponent.new(text: "Medium tooltip with more content to show the max width", size: :medium)) do %>
+    <%= tag.button("Medium", type: "button", class: "px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700") %>
+  <% end %>
+
+  <%# Large size %>
+  <%= render(Foundation::TooltipComponent.new(text: "Large tooltip with even more content to demonstrate how it wraps at max-w-md", size: :large)) do %>
+    <%= tag.button("Large", type: "button", class: "px-5 py-2.5 text-lg bg-gray-600 text-white rounded-md hover:bg-gray-700") %>
+  <% end %>
+</div>

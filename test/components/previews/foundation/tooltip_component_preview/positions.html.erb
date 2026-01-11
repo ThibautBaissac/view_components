@@ -1,0 +1,21 @@
+<div class="flex flex-wrap items-center justify-center gap-16 p-16">
+  <%# Top position (default) %>
+  <%= render(Foundation::TooltipComponent.new(text: "I appear on top", position: :top)) do %>
+    <%= tag.button("Top", type: "button", class: "px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700") %>
+  <% end %>
+
+  <%# Bottom position %>
+  <%= render(Foundation::TooltipComponent.new(text: "I appear on bottom", position: :bottom)) do %>
+    <%= tag.button("Bottom", type: "button", class: "px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700") %>
+  <% end %>
+
+  <%# Left position %>
+  <%= render(Foundation::TooltipComponent.new(text: "I appear on left", position: :left)) do %>
+    <%= tag.button("Left", type: "button", class: "px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700") %>
+  <% end %>
+
+  <%# Right position %>
+  <%= render(Foundation::TooltipComponent.new(text: "I appear on right", position: :right)) do %>
+    <%= tag.button("Right", type: "button", class: "px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700") %>
+  <% end %>
+</div>

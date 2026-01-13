@@ -39,10 +39,10 @@ class Behavior::ClipboardComponent < ViewComponent::Base
   end
 
   # Check if component should render
-  # Only render if value is present and not blank
+  # Only render if value is not nil (empty strings are allowed)
   # @return [Boolean]
   def render?
-    @value.present?
+    !@value.nil?
   end
 
   private

@@ -91,11 +91,13 @@ module Navigation
       # @param text [String] Link text
       # @param url [String] Link URL
       # @param active [Boolean] Whether this item is active
+      # @param resource_color [Symbol, nil] Optional resource color (:amber, :rose, :emerald)
       # @param html_attributes [Hash] Additional HTML attributes
-      def initialize(text:, url:, active: false, **html_attributes)
+      def initialize(text:, url:, active: false, resource_color: nil, **html_attributes)
         @text = text
         @url = url
         @active = active
+        @resource_color = resource_color
         @html_attributes = html_attributes
       end
 
@@ -117,10 +119,31 @@ module Navigation
 
       def item_classes
         base = "px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-        active = "bg-slate-100 text-slate-700"
-        inactive = "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
 
-        [ base, @active ? active : inactive ].join(" ")
+        if @active
+          active_classes = @resource_color.present? ? resource_active_classes : default_active_classes
+          [ base, active_classes ].join(" ")
+        else
+          inactive = "text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+          [ base, inactive ].join(" ")
+        end
+      end
+
+      def default_active_classes
+        "bg-slate-100 text-slate-700"
+      end
+
+      def resource_active_classes
+        case @resource_color
+        when :amber
+          "bg-amber-50 text-amber-700"
+        when :rose
+          "bg-rose-50 text-rose-700"
+        when :emerald
+          "bg-emerald-50 text-emerald-700"
+        else
+          default_active_classes
+        end
       end
     end
   end

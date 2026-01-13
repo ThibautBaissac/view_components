@@ -89,8 +89,24 @@ class Layout::ModalComponent < ViewComponent::Base
   end
 
   # Modal trigger button helper for use outside the component
-  # @return [Hash] Data attributes for a trigger button
+  # Returns data attributes for a trigger button
+  #
+  # When used with html_attributes parameter:
+  #   html_attributes: Layout::ModalComponent.trigger_attributes(modal_id: "my-modal")
+  #
+  # When used with data parameter or helpers.tag.attributes:
+  #   data: Layout::ModalComponent.trigger_data(modal_id: "my-modal")
+  #
+  # @return [Hash] HTML attributes with nested data hash
   def self.trigger_attributes(modal_id:)
+    {
+      data: trigger_data(modal_id: modal_id)
+    }
+  end
+
+  # Returns just the data attributes hash for trigger buttons
+  # @return [Hash] Data attributes hash
+  def self.trigger_data(modal_id:)
     {
       controller: "components--modal",
       action: "click->components--modal#triggerOpen",

@@ -72,32 +72,55 @@ class Layout::PageHeaderComponent < ViewComponent::Base
   # @param description [String, nil] Optional description/subtitle
   # @param back_url [String, nil] Optional back/breadcrumb URL
   # @param back_text [String, nil] Text for back link (uses I18n default if not provided)
+  # @param border_color [Symbol, nil] Optional left border color (:amber, :rose, :emerald)
   # @param html_attributes [Hash] Additional HTML attributes
   def initialize(
     title:,
     description: nil,
     back_url: nil,
     back_text: nil,
+    border_color: nil,
     **html_attributes
   )
     @title = title
     @description = description
     @back_url = back_url
     @back_text = back_text
+    @border_color = border_color
     @html_attributes = html_attributes
   end
 
   private
 
   def container_classes
-    "mb-6"
+    classes = [ "mb-6" ]
+    classes << "border-l-4 pl-4" if @border_color.present?
+    classes.compact.join(" ")
   end
 
   def merged_html_attributes
-    deep_merge_attributes(
+    attrs = deep_merge_attributes(
       { class: container_classes },
       @html_attributes
     )
+
+    # Add border color class
+    if @border_color.present?
+      attrs[:class] = "#{attrs[:class]} #{border_color_class}"
+    end
+
+    attrs
+  end
+
+  def border_color_class
+    case @border_color
+    when :amber
+      "border-amber-500"
+    when :rose
+      "border-rose-500"
+    when :emerald
+      "border-emerald-500"
+    end
   end
 
   def title_container_classes

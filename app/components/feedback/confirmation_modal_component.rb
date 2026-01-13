@@ -120,9 +120,23 @@ class Feedback::ConfirmationModalComponent < ViewComponent::Base
   end
 
   # Trigger button helper for use outside the component
-  # @return [Hash] Data attributes for a trigger button
+  # Returns data attributes for a trigger button
+  #
+  # When used with html_attributes parameter:
+  #   html_attributes: Feedback::ConfirmationModalComponent.trigger_attributes(modal_id: "my-modal")
+  #
+  # When used with data parameter:
+  #   data: Feedback::ConfirmationModalComponent.trigger_data(modal_id: "my-modal")
+  #
+  # @return [Hash] HTML attributes with nested data hash
   def self.trigger_attributes(modal_id:)
     Layout::ModalComponent.trigger_attributes(modal_id: modal_id)
+  end
+
+  # Returns just the data attributes hash for trigger buttons
+  # @return [Hash] Data attributes hash
+  def self.trigger_data(modal_id:)
+    Layout::ModalComponent.trigger_data(modal_id: modal_id)
   end
 
   private
@@ -145,15 +159,15 @@ class Feedback::ConfirmationModalComponent < ViewComponent::Base
   end
 
   def title_classes
-    "text-lg font-semibold text-slate-900 text-center"
+    "text-lg font-semibold text-slate-900 text-center break-words whitespace-normal"
   end
 
   def message_classes
-    "text-sm text-slate-600 text-center"
+    "text-sm text-slate-600 text-center break-words whitespace-normal"
   end
 
   def description_classes
-    "text-sm text-slate-500 text-center mt-2"
+    "text-sm text-slate-500 text-center mt-2 break-words whitespace-normal"
   end
 
   def actions_classes

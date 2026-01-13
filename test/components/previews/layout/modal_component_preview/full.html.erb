@@ -4,7 +4,7 @@
   <%= render Foundation::ButtonComponent.new(
     text: "Open Full Modal",
     variant: :primary,
-    data: Layout::ModalComponent.trigger_attributes(modal_id: modal_id)
+    data: Layout::ModalComponent.trigger_data(modal_id: modal_id)
   ) %>
 
   <%= render Layout::ModalComponent.new(

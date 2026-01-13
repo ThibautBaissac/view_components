@@ -23,6 +23,7 @@
 #
 # @param text [String, nil] Button/link text content
 # @param variant [Symbol] Visual style variant (:primary, :secondary, :success, :danger, :warning, :outline, :ghost, :link)
+# @param resource_color [Symbol, nil] Optional resource color (:amber, :rose, :emerald) - overrides variant color
 # @param size [Symbol] Size variant (:small, :medium, :large)
 # @param disabled [Boolean] Whether the element is disabled
 # @param full_width [Boolean] Whether the element should span full width
@@ -53,6 +54,7 @@ class Foundation::BaseButtonComponent < ViewComponent::Base
   def initialize(
     text: nil,
     variant: :primary,
+    resource_color: nil,
     size: :medium,
     disabled: false,
     full_width: false,
@@ -60,6 +62,7 @@ class Foundation::BaseButtonComponent < ViewComponent::Base
   )
     @text = text
     @variant = variant
+    @resource_color = resource_color
     @size = size
     @disabled = disabled
     @full_width = full_width
@@ -91,6 +94,9 @@ class Foundation::BaseButtonComponent < ViewComponent::Base
   end
 
   def variant_classes
+    # If resource_color is provided, use resource-specific styles
+    return resource_color_classes if @resource_color.present?
+
     case @variant
     when :primary
       "bg-indigo-600 hover:bg-indigo-700 text-white active:scale-95 shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 focus:ring-indigo-500"
@@ -110,6 +116,30 @@ class Foundation::BaseButtonComponent < ViewComponent::Base
       "text-indigo-600 hover:underline focus:ring-indigo-500"
     else
       "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500"
+    end
+  end
+
+  def resource_color_classes
+    # If variant is outline, use outline style with resource color
+    if @variant == :outline
+      case @resource_color
+      when :amber
+        "border-2 border-amber-600 text-amber-700 bg-white hover:bg-amber-50 hover:border-amber-700 active:scale-95 focus:ring-amber-500"
+      when :rose
+        "border-2 border-rose-600 text-rose-700 bg-white hover:bg-rose-50 hover:border-rose-700 active:scale-95 focus:ring-rose-500"
+      when :emerald
+        "border-2 border-emerald-600 text-emerald-700 bg-white hover:bg-emerald-50 hover:border-emerald-700 active:scale-95 focus:ring-emerald-500"
+      end
+    else
+      # Default solid style with resource color
+      case @resource_color
+      when :amber
+        "bg-amber-600 hover:bg-amber-700 text-white active:scale-95 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 focus:ring-amber-500"
+      when :rose
+        "bg-rose-600 hover:bg-rose-700 text-white active:scale-95 shadow-lg shadow-rose-500/30 hover:shadow-xl hover:shadow-rose-500/40 focus:ring-rose-500"
+      when :emerald
+        "bg-emerald-600 hover:bg-emerald-700 text-white active:scale-95 shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 focus:ring-emerald-500"
+      end
     end
   end
 

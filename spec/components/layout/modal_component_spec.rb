@@ -256,9 +256,19 @@ RSpec.describe Layout::ModalComponent, type: :component do
     it "returns correct data attributes for trigger button" do
       attrs = described_class.trigger_attributes(modal_id: "test-modal")
 
-      expect(attrs[:controller]).to eq("components--modal")
-      expect(attrs[:action]).to eq("click->components--modal#triggerOpen")
-      expect(attrs[:modal_target]).to eq("test-modal")
+      expect(attrs[:data][:controller]).to eq("components--modal")
+      expect(attrs[:data][:action]).to eq("click->components--modal#triggerOpen")
+      expect(attrs[:data][:modal_target]).to eq("test-modal")
+    end
+  end
+
+  describe ".trigger_data class method" do
+    it "returns correct data hash for trigger button" do
+      data = described_class.trigger_data(modal_id: "test-modal")
+
+      expect(data[:controller]).to eq("components--modal")
+      expect(data[:action]).to eq("click->components--modal#triggerOpen")
+      expect(data[:modal_target]).to eq("test-modal")
     end
   end
 

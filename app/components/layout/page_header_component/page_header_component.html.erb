@@ -17,6 +17,18 @@
             <%= @description %>
           </p>
         <% end %>
+        <% if show_back_link? %>
+          <nav aria-label="<%= breadcrumb_aria_label %>" class="<%= back_link_container_classes %>">
+            <%= render Foundation::LinkComponent.new(
+              href: @back_url,
+              variant: :secondary,
+              size: :small,
+              aria: { label: back_link_aria_label }
+            ) do %>
+              <%= back_link_text %>
+            <% end %>
+          </nav>
+        <% end %>
       </div>
       <div role="region" aria-label="<%= actions_aria_label %>">
         <%= action %>
@@ -49,6 +61,11 @@
           <%= back_link_text %>
         <% end %>
       </nav>
+    <% end %>
+    <% if action? %>
+      <div role="region" aria-label="<%= actions_aria_label %>" class="mt-4">
+        <%= action %>
+      </div>
     <% end %>
   <% end %>
 </header>
